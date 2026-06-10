@@ -1,0 +1,20 @@
+{
+  "common": {
+    "home": "ホーム", "shop": "ショップ", "products": "商品", "categories": "カテゴリー",
+    "cart": "カート", "checkout": "決済", "account": "アカウント", "search": "検索",
+    "language": "言語", "currency": "通貨", "all": "すべて", "viewAll": "すべて見る",
+    "learnMore": "詳細", "addToCart": "カートに入れる", "buyNow": "今すぐ購入",
+    "outOfStock": "在庫切れ", "inStock": "在庫あり", "sale": "セール", "new": "新着",
+    "featured": "おすすめ", "loading": "読み込み中...", "error": "エラーが発生しました",
+    "noResults": "結果なし", "back": "戻る", "next": "次へ",
+    "previous": "前へ", "submit": "送信", "cancel": "キャンセル", "save": "保存",
+    "delete": "削除", "edit": "編集", "close": "閉じる"
+  },
+  "header": { "searchPlaceholder": "商品を検索...", "account": "マイアカウント", "orders": "注文履歴", "wishlist": "お気に入り", "signIn": "ログイン", "signOut": "ログアウト", "register": "登録" },
+  "home": { "heroTitle": "中国の品質製品を世界へお届け", "heroSubtitle": "本物の中国工芸品を発見", "heroCta": "今すぐショッピング", "featuredTitle": "おすすめ商品", "newArrivals": "新着商品", "categories": "カテゴリーから探す", "whyUs": "oniiiを選ぶ理由", "whyUs1_title": "品質保証", "whyUs1_desc": "すべての商品は厳選され、出荷前に品質チェック", "whyUs2_title": "世界配送", "whyUs2_desc": "200カ国以上に追跡可能な配送", "whyUs3_title": "安全な決済", "whyUs3_desc": "クレジットカード・PayPal等で安全にお支払い", "whyUs4_title": "カスタマーサポート", "whyUs4_desc": "24時間365日対応のサポートチーム" },
+  "products": { "title": "すべての商品", "filter": "フィルター", "sortBy": "並び替え", "sortDefault": "デフォルト", "sortPriceLow": "価格: 安い順", "sortPriceHigh": "価格: 高い順", "sortNewest": "新着順", "sortPopular": "人気順", "price": "価格", "description": "説明", "specifications": "仕様", "reviews": "レビュー", "relatedProducts": "こちらもおすすめ", "material": "素材", "dimensions": "サイズ", "weight": "重量", "origin": "原産地", "sku": "SKU", "category": "カテゴリー", "quantity": "数量", "selectVariant": "バリエーション", "noReviews": "最初のレビューを書きませんか？" },
+  "cart": { "title": "ショッピングカート", "empty": "カートは空です", "emptyDesc": "まだ何も追加されていません。", "continueShopping": "買い物を続ける", "subtotal": "小計", "shipping": "送料", "tax": "税金", "total": "合計", "proceedCheckout": "決済に進む", "remove": "削除", "shippingNote": "送料は決済時に計算" },
+  "checkout": { "title": "決済", "shippingInfo": "配送情報", "paymentMethod": "支払方法", "orderSummary": "注文概要", "firstName": "名", "lastName": "姓", "email": "メール", "phone": "電話番号", "address": "住所", "address2": "部屋番号等", "city": "市区町村", "state": "都道府県", "zip": "郵便番号", "country": "国", "placeOrder": "注文を確定", "cardPayment": "クレジットカード", "paypalPayment": "PayPal", "orderSuccess": "注文完了！", "orderSuccessDesc": "ありがとうございます。確認メールをお送りします。", "orderNumber": "注文番号" },
+  "footer": { "about": "oniiiについて", "aboutDesc": "中国製造の最高のものを世界中のお客様へ。", "customerService": "カスタマーサービス", "contactUs": "お問い合わせ", "shippingInfo": "配送情報", "returns": "返品・返金", "privacy": "プライバシー", "terms": "利用規約", "faq": "よくある質問", "followUs": "フォローする", "newsletter": "ニュースレター", "newsletterDesc": "限定セールや新着情報をお届け", "subscribe": "登録", "copyright": "© 2024 oniii. All Rights Reserved." },
+  "404": { "title": "ページが見つかりません", "desc": "お探しのページは存在しません。", "backHome": "ホームに戻る" }
+}

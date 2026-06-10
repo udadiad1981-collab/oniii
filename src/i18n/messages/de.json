@@ -1,0 +1,20 @@
+{
+  "common": {
+    "home": "Startseite", "shop": "Shop", "products": "Produkte", "categories": "Kategorien",
+    "cart": "Warenkorb", "checkout": "Kasse", "account": "Konto", "search": "Suche",
+    "language": "Sprache", "currency": "Währung", "all": "Alle", "viewAll": "Alle Anzeigen",
+    "learnMore": "Mehr Erfahren", "addToCart": "In den Warenkorb", "buyNow": "Jetzt Kaufen",
+    "outOfStock": "Ausverkauft", "inStock": "Verfügbar", "sale": "Angebot", "new": "Neu",
+    "featured": "Empfohlen", "loading": "Laden...", "error": "Etwas ist schief gelaufen",
+    "noResults": "Keine Ergebnisse", "back": "Zurück", "next": "Weiter",
+    "previous": "Zurück", "submit": "Absenden", "cancel": "Abbrechen", "save": "Speichern",
+    "delete": "Löschen", "edit": "Bearbeiten", "close": "Schließen"
+  },
+  "header": { "searchPlaceholder": "Produkte suchen...", "account": "Mein Konto", "orders": "Bestellungen", "wishlist": "Wunschliste", "signIn": "Anmelden", "signOut": "Abmelden", "register": "Registrieren" },
+  "home": { "heroTitle": "Qualitätsprodukte aus China, Weltweit Geliefert", "heroSubtitle": "Entdecken Sie authentische chinesische Handwerkskunst", "heroCta": "Jetzt Einkaufen", "featuredTitle": "Empfohlene Produkte", "newArrivals": "Neuheiten", "categories": "Nach Kategorie", "whyUs": "Warum oniii?", "whyUs1_title": "Qualität Garantiert", "whyUs1_desc": "Jedes Produkt wird sorgfältig ausgewählt und vor Versand geprüft", "whyUs2_title": "Weltweiter Versand", "whyUs2_desc": "Lieferung in über 200 Länder mit Sendungsverfolgung", "whyUs3_title": "Sichere Zahlung", "whyUs3_desc": "Zahlen Sie sicher mit Karte, PayPal und mehr", "whyUs4_title": "Kundenservice", "whyUs4_desc": "24/7 Support-Team für Sie bereit" },
+  "products": { "title": "Alle Produkte", "filter": "Filter", "sortBy": "Sortieren", "sortDefault": "Standard", "sortPriceLow": "Preis: Aufsteigend", "sortPriceHigh": "Preis: Absteigend", "sortNewest": "Neueste", "sortPopular": "Beliebt", "price": "Preis", "description": "Beschreibung", "specifications": "Spezifikationen", "reviews": "Bewertungen", "relatedProducts": "Das Könnte Ihnen Auch Gefallen", "material": "Material", "dimensions": "Abmessungen", "weight": "Gewicht", "origin": "Herkunft", "sku": "Artikelnummer", "category": "Kategorie", "quantity": "Menge", "selectVariant": "Variante", "noReviews": "Seien Sie der Erste mit einer Bewertung!" },
+  "cart": { "title": "Warenkorb", "empty": "Warenkorb Leer", "emptyDesc": "Sie haben noch nichts hinzugefügt.", "continueShopping": "Weiter Einkaufen", "subtotal": "Zwischensumme", "shipping": "Versand", "tax": "Steuer", "total": "Gesamt", "proceedCheckout": "Zur Kasse", "remove": "Entfernen", "shippingNote": "Versand wird an der Kasse berechnet" },
+  "checkout": { "title": "Kasse", "shippingInfo": "Lieferadresse", "paymentMethod": "Zahlungsmethode", "orderSummary": "Bestellübersicht", "firstName": "Vorname", "lastName": "Nachname", "email": "E-Mail", "phone": "Telefon", "address": "Adresse", "address2": "Adresszusatz", "city": "Stadt", "state": "Bundesland", "zip": "PLZ", "country": "Land", "placeOrder": "Bestellen", "cardPayment": "Kreditkarte", "paypalPayment": "PayPal", "orderSuccess": "Bestellung Erfolgreich!", "orderSuccessDesc": "Vielen Dank. Sie erhalten eine Bestätigungs-E-Mail.", "orderNumber": "Bestellnummer" },
+  "footer": { "about": "Über oniii", "aboutDesc": "Das Beste der chinesischen Fertigung für Kunden weltweit.", "customerService": "Kundenservice", "contactUs": "Kontakt", "shippingInfo": "Versandinfo", "returns": "Rückgabe", "privacy": "Datenschutz", "terms": "AGB", "faq": "FAQ", "followUs": "Folgen Sie Uns", "newsletter": "Newsletter", "newsletterDesc": "Exklusive Angebote und Neuheiten", "subscribe": "Abonnieren", "copyright": "© 2024 oniii. Alle Rechte vorbehalten." },
+  "404": { "title": "Seite Nicht Gefunden", "desc": "Diese Seite existiert nicht.", "backHome": "Zur Startseite" }
+}

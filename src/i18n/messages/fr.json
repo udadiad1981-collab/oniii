@@ -1,0 +1,20 @@
+{
+  "common": {
+    "home": "Accueil", "shop": "Boutique", "products": "Produits", "categories": "Catégories",
+    "cart": "Panier", "checkout": "Commander", "account": "Compte", "search": "Rechercher",
+    "language": "Langue", "currency": "Devise", "all": "Tout", "viewAll": "Voir Tout",
+    "learnMore": "En Savoir Plus", "addToCart": "Ajouter", "buyNow": "Acheter",
+    "outOfStock": "Épuisé", "inStock": "En Stock", "sale": "Soldes", "new": "Nouveau",
+    "featured": "En Vedette", "loading": "Chargement...", "error": "Une erreur est survenue",
+    "noResults": "Aucun résultat", "back": "Retour", "next": "Suivant",
+    "previous": "Précédent", "submit": "Envoyer", "cancel": "Annuler", "save": "Sauvegarder",
+    "delete": "Supprimer", "edit": "Modifier", "close": "Fermer"
+  },
+  "header": { "searchPlaceholder": "Rechercher...", "account": "Mon Compte", "orders": "Commandes", "wishlist": "Favoris", "signIn": "Connexion", "signOut": "Déconnexion", "register": "S'inscrire" },
+  "home": { "heroTitle": "Produits Chinois de Qualité, Livrés dans le Monde Entier", "heroSubtitle": "Découvrez l'artisanat chinois authentique", "heroCta": "Acheter", "featuredTitle": "Produits en Vedette", "newArrivals": "Nouveautés", "categories": "Par Catégorie", "whyUs": "Pourquoi oniii?", "whyUs1_title": "Qualité Garantie", "whyUs1_desc": "Chaque produit est soigneusement sélectionné et vérifié", "whyUs2_title": "Livraison Mondiale", "whyUs2_desc": "Nous livrons dans plus de 200 pays avec suivi", "whyUs3_title": "Paiement Sécurisé", "whyUs3_desc": "Payez par carte, PayPal et plus", "whyUs4_title": "Service Client", "whyUs4_desc": "Équipe d'assistance 24/7 à votre service" },
+  "products": { "title": "Tous les Produits", "filter": "Filtrer", "sortBy": "Trier par", "sortDefault": "Défaut", "sortPriceLow": "Prix: Bas-Haut", "sortPriceHigh": "Prix: Haut-Bas", "sortNewest": "Récent", "sortPopular": "Populaire", "price": "Prix", "description": "Description", "specifications": "Spécifications", "reviews": "Avis", "relatedProducts": "Vous Pourriez Aimer", "material": "Matériau", "dimensions": "Dimensions", "weight": "Poids", "origin": "Origine", "sku": "SKU", "category": "Catégorie", "quantity": "Quantité", "selectVariant": "Variante", "noReviews": "Soyez le premier à donner votre avis!" },
+  "cart": { "title": "Panier", "empty": "Panier Vide", "emptyDesc": "Vous n'avez rien ajouté.", "continueShopping": "Continuer", "subtotal": "Sous-total", "shipping": "Livraison", "tax": "Taxe", "total": "Total", "proceedCheckout": "Commander", "remove": "Retirer", "shippingNote": "Calculé à la commande" },
+  "checkout": { "title": "Commander", "shippingInfo": "Adresse de Livraison", "paymentMethod": "Paiement", "orderSummary": "Résumé", "firstName": "Prénom", "lastName": "Nom", "email": "Email", "phone": "Téléphone", "address": "Adresse", "address2": "Complément", "city": "Ville", "state": "Région", "zip": "Code Postal", "country": "Pays", "placeOrder": "Confirmer", "cardPayment": "Carte", "paypalPayment": "PayPal", "orderSuccess": "Commande Confirmée!", "orderSuccessDesc": "Merci. Vous recevrez un email.", "orderNumber": "N° Commande" },
+  "footer": { "about": "À Propos", "aboutDesc": "Le meilleur de la fabrication chinoise livré dans le monde entier.", "customerService": "Service Client", "contactUs": "Contact", "shippingInfo": "Livraison", "returns": "Retours", "privacy": "Confidentialité", "terms": "Conditions", "faq": "FAQ", "followUs": "Suivez-nous", "newsletter": "Newsletter", "newsletterDesc": "Offres exclusives et nouveautés", "subscribe": "S'abonner", "copyright": "© 2024 oniii. Tous droits réservés." },
+  "404": { "title": "Page Introuvable", "desc": "Cette page n'existe pas.", "backHome": "Accueil" }
+}
