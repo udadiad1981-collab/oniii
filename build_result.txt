@@ -1,0 +1,60 @@
+▲ Next.js 16.2.7 (Turbopack)
+- Environments: .env.production, .env
+
+⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+  Creating an optimized production build ...
+✓ Compiled successfully in 27.0s
+  Running TypeScript ...
+  Finished TypeScript in 28.6s ...
+  Collecting page data using 7 workers ...
+  Generating static pages using 7 workers (0/25) ...
+  Generating static pages using 7 workers (6/25) 
+  Generating static pages using 7 workers (12/25) 
+  Generating static pages using 7 workers (18/25) 
+✓ Generating static pages using 7 workers (25/25) in 1224ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /_not-found
+├ ƒ /[locale]
+├ ƒ /[locale]/cart
+├ ƒ /[locale]/checkout
+├ ƒ /[locale]/checkout/cancel
+├ ƒ /[locale]/checkout/success
+├ ƒ /[locale]/contact
+├ ƒ /[locale]/orders
+├ ƒ /[locale]/privacy
+├ ƒ /[locale]/products/[slug]
+├ ƒ /[locale]/returns
+├ ƒ /[locale]/returns-request
+├ ƒ /[locale]/search
+├ ○ /admin
+├ ○ /admin/login
+├ ○ /admin/orders
+├ ○ /admin/products
+├ ○ /admin/products/new
+├ ƒ /api/admin/categories
+├ ƒ /api/admin/contacts
+├ ƒ /api/admin/login
+├ ƒ /api/admin/logout
+├ ƒ /api/admin/me
+├ ƒ /api/admin/orders
+├ ƒ /api/admin/products
+├ ƒ /api/admin/returns
+├ ƒ /api/admin/stats
+├ ƒ /api/auth/[...nextauth]
+├ ƒ /api/checkout
+├ ƒ /api/checkout/paypal
+├ ƒ /api/checkout/stripe
+├ ƒ /api/checkout/webhook/stripe
+├ ƒ /api/contact
+├ ƒ /api/orders
+├ ƒ /api/returns
+└ ƒ /api/upload
+
+
+ƒ Proxy (Middleware)
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+
