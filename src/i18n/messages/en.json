@@ -134,10 +134,23 @@
     "newsletter": "Newsletter",
     "newsletterDesc": "Subscribe for exclusive deals and new arrivals",
     "subscribe": "Subscribe",
-    "copyright": "© 2024 oniii. All rights reserved."
+    "copyright": "© 2024 oniii. All rights reserved.",
+    "sign_in": "Sign In",
+    "register": "Register"
   },
-  "404": {
-    "title": "Page Not Found",
+  "auth": {
+    "login_title": "Sign In",
+    "register_title": "Create Account",
+    "welcome_back": "Welcome Back!",
+    "no_account": "No account yet?",
+    "create_one": "Create one here",
+    "already_have_account": "Already have an account?",
+    "sign_in_here": "Sign in here",
+    "create_account":"Create Account",
+    "back_to_home": "Back to homepage"
+  },
+
+  "404": { "title": "Page Not Found",
     "desc": "The page you're looking for doesn't exist or has been moved.",
     "backHome": "Back to Home"
   }

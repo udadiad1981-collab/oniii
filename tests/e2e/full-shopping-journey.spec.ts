@@ -110,7 +110,7 @@ test.describe("EQFRS Full Human Shopping Journey", () => {
       await page.selectOption('select', "US");
       await page.screenshot({ path: "test-output/06-checkout-filled.png", fullPage: true });
       console.log("   ✅ Checkout form filled successfully");
-    } catch (e) {
+    } catch (e: any) {
       console.log("   ⚠️ Could not fill all fields (may need items in cart):", e.message);
     }
 

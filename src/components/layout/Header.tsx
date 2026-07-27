@@ -80,6 +80,11 @@ export default function Header() {
           </nav>
 
           <div className="flex items-center gap-3">
+            {/* Login/Register button */}
+            <Link href={`/${currentLocale}/login`} className="text-xs font-medium px-3 py-1.5 bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white rounded transition-colors">
+              {currentLocale === "zh" ? "登录/注册" : "Sign In"}
+            </Link>
+
             <button
               onClick={() => setSearchOpen(!searchOpen)}
               className="p-2 hover:bg-gray-100 rounded-full transition-colors"

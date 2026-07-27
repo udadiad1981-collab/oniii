@@ -140,5 +140,16 @@
     "title": "頁面未找到",
     "desc": "您要找的頁面不存在或已遷移。",
     "backHome": "返回首頁"
+  },
+  "auth": {
+    "login_title": "登入",
+    "register_title": "創建帳號",
+    "welcome_back": "歡迎回來!",
+    "no_account": "還沒有帳號？",
+    "create_one": "創建一個吧",
+    "already_have_account": "已經有帳號了？",
+    "sign_in_here": "從這裡登入",
+    "create_account": "創建帳號",
+    "back_to_home": "返回首頁"
   }
 }
