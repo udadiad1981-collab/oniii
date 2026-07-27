@@ -3,6 +3,44 @@ import { prisma } from "@/lib/db";
 import { cnyToUsd } from "@/lib/utils";
 import { getTranslations } from "next-intl/server";
 import ProductCard from "@/components/product/ProductCard";
+import type { Metadata } from "next";
+
+export async function generateMetadata({
+  params,
+  searchParams,
+}: {
+  params: Promise<{ locale: string }>;
+  searchParams: Promise<{ q?: string; category?: string }>;
+}): Promise<Metadata> {
+  const sp = await searchParams;
+  const { locale } = await params;
+
+  if (sp.q) {
+    return {
+      title: `Search: ${sp.q}`,
+      description: `Search results for "${sp.q}" on oniii`,
+    };
+  }
+
+  if (sp.category) {
+    const cat = await prisma.category.findUnique({
+      where: { slug: sp.category },
+      select: { nameEn: true, name: true },
+    });
+    if (cat) {
+      const name = locale === "zh" ? cat.name : cat.nameEn;
+      return {
+        title: name,
+        description: `Shop ${name} products on oniii. Quality products from China with worldwide shipping.`,
+      };
+    }
+  }
+
+  return {
+    title: "All Products",
+    description: "Browse all products on oniii - Quality products from China with worldwide shipping.",
+  };
+}
 
 export default async function SearchPage({
   params,

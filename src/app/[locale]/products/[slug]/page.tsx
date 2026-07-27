@@ -4,6 +4,38 @@ import { prisma } from "@/lib/db";
 import { cnyToUsd } from "@/lib/utils";
 import AddToCartButton from "@/components/product/AddToCartButton";
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string; slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const product = await prisma.product.findUnique({
+    where: { slug },
+    select: { nameEn: true, name: true, descriptionEn: true, description: true, seoTitle: true, seoDesc: true, images: { select: { url: true }, take: 1 } },
+  });
+
+  if (!product) {
+    return { title: "Product Not Found" };
+  }
+
+  const title = product.seoTitle || product.nameEn || product.name;
+  const description = product.seoDesc || product.descriptionEn || product.description;
+  const image = product.images[0]?.url;
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      images: image ? [{ url: image }] : undefined,
+      type: "website",
+    },
+  };
+}
 
 export default async function ProductPage({
   params,

@@ -52,6 +52,8 @@ export default function Footer() {
             <ul className="space-y-2 text-sm text-gray-400">
               <li><Link href={`/${locale}/privacy`} className="hover:text-white transition-colors">{t("footer.privacy")}</Link></li>
               <li><Link href={`/${locale}/returns`} className="hover:text-white transition-colors">{t("footer.returns")}</Link></li>
+              <li><Link href={`/${locale}/terms`} className="hover:text-white transition-colors">{locale === "zh" ? "服务条款" : "Terms of Service"}</Link></li>
+              <li><Link href={`/${locale}/shipping`} className="hover:text-white transition-colors">{locale === "zh" ? "物流政策" : "Shipping Policy"}</Link></li>
             </ul>
           </div>
 

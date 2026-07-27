@@ -1,4 +1,10 @@
 import { getTranslations } from "next-intl/server";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Return Policy",
+  description: "oniii return policy. Learn about our return process, eligibility, and refund timeline.",
+};
 
 export default async function ReturnsPage({
   params,

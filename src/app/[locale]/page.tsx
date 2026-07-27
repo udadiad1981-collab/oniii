@@ -12,22 +12,40 @@ export default async function HomePage({
   const { locale } = await params;
   const t = await getTranslations({ locale });
 
-  const products = await prisma.product.findMany({
+  const recent = await prisma.product.findMany({
     where: { status: "published" },
     include: { images: { orderBy: { sortOrder: "asc" } }, category: true },
     orderBy: { createdAt: "desc" },
     take: 12,
   });
 
-  const featured = products.filter((p) => p.featured).slice(0, 8);
-  const recent = products.slice(0, 8);
+  // Get featured products; if not enough, fill with best-discount products
+  const featuredProducts = await prisma.product.findMany({
+    where: { status: "published", featured: true },
+    include: { images: { orderBy: { sortOrder: "asc" } }, category: true },
+    take: 8,
+  });
+
+  let featured = featuredProducts;
+  if (featured.length < 4) {
+    // Fill with products that have the best discounts
+    const fillCount = 8 - featured.length;
+    const excludeIds = featured.map((p) => p.id);
+    const discounted = await prisma.product.findMany({
+      where: { status: "published", id: { notIn: excludeIds }, compareAt: { not: null } },
+      include: { images: { orderBy: { sortOrder: "asc" } }, category: true },
+      orderBy: { createdAt: "desc" },
+      take: fillCount,
+    });
+    featured = [...featured, ...discounted];
+  }
 
   const categories = await prisma.category.findMany({
     where: { parentId: null },
-    take: 6,
+    take: 8,
   });
 
-  const mappedProducts = (list: typeof products) =>
+  const mappedProducts = (list: typeof recent) =>
     list.map((p) => ({
       id: p.id,
       nameEn: p.nameEn || p.name,
@@ -75,7 +93,7 @@ export default async function HomePage({
           <h2 className="text-2xl md:text-3xl font-bold text-center mb-10">
             {t("home.categories")}
           </h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
             {categories.map((cat) => (
               <Link
                 key={cat.id}
@@ -87,7 +105,9 @@ export default async function HomePage({
                    cat.slug.includes("cloth") ? "👕" :
                    cat.slug.includes("home") ? "🏠" :
                    cat.slug.includes("handicraft") ? "🎨" :
-                   cat.slug.includes("food") ? "🍵" : "📦"}
+                   cat.slug.includes("food") ? "🍵" :
+                   cat.slug.includes("beauty") ? "💄" :
+                   cat.slug.includes("sport") ? "⚽" : "📦"}
                 </div>
                 <h3 className="font-medium text-sm text-gray-700 group-hover:text-[var(--accent)] transition-colors">
                   {locale === "zh" ? cat.name : cat.nameEn}
@@ -128,7 +148,7 @@ export default async function HomePage({
           </Link>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-          {mappedProducts(recent).map((p) => (
+          {mappedProducts(recent.slice(0, 8)).map((p) => (
             <ProductCard key={p.id} product={p} />
           ))}
         </div>

@@ -6,7 +6,10 @@ import Footer from "@/components/layout/Footer";
 import "../globals.css";
 
 export const metadata: Metadata = {
-  title: "oniii - Quality Products from China | Worldwide Shipping",
+  title: {
+    default: "oniii - Quality Products from China | Worldwide Shipping",
+    template: "%s | oniii",
+  },
   description:
     "Discover premium Chinese products at oniii. Electronics, clothing, home goods, handicrafts and more. Free worldwide shipping on orders over $99.",
   keywords: ["Chinese products", "online store", "worldwide shipping", "electronics", "clothing", "home goods", "handicrafts"],
