@@ -7,7 +7,7 @@ import Link from "next/link";
 export default function AdminDashboard() {
   const router = useRouter();
   const [user, setUser] = useState<any>(null);
-  const [stats, setStats] = useState({ products: 0, orders: 0, users: 0, revenue: 0 });
+  const [stats, setStats] = useState<any>({ products: 0, orders: 0, users: 0, revenue: 0 });
   const [recentOrders, setRecentOrders] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 

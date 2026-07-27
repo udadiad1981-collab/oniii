@@ -32,7 +32,8 @@ export default function AdminProductsPage() {
       <div className="flex items-center justify-between mb-6">
         <div><h1 className="text-2xl font-bold text-gray-800">📦 商品管理</h1><p className="text-sm text-gray-500 mt-1">共 {products.length} 件商品</p></div>
         <div className="flex gap-3">
-          <Link href="/admin/products/new" className="px-4 py-2 bg-red-500 text-white rounded-lg text-sm hover:bg-red-600 transition-colors font-medium">+ 添加商品</Link>
+          <Link href="/admin/products/batch-import" className="px-4 py-2 bg-green-600 text-white rounded-lg text-sm hover:bg-green-700 transition-colors font-medium">📥 批量导入</Link>
+          <Link href="/admin/products/new" className="px-4 py-2 bg-red-500 text-white rounded-lg text-sm hover:bg-red-600 transition-colors">+ 添加商品</Link>
           <Link href="/admin" className="px-4 py-2 bg-gray-900 text-white rounded-lg text-sm hover:bg-gray-800 transition-colors">← 返回后台</Link>
         </div>
       </div>
