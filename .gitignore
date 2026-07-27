@@ -36,6 +36,13 @@ yarn-error.log*
 # vercel
 .vercel
 
+# secrets and tokens (prevent git add secrets)
+*.key
+*secret*
+*_token.txt
+ghp_*
+vcp_*
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
