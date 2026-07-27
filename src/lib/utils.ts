@@ -30,22 +30,69 @@ export function slugify(text: string): string {
     .trim();
 }
 
+/**
+ * Calculate shipping cost based on weight and destination
+ * Supports: Manual rate table + Future integration with logistics API (e.g., Kuaidi100)
+ */
 export function calculateShipping(weightGrams: number, country: string): number {
   const weightKg = weightGrams / 1000;
-  switch (country) {
-    case "US":
-      return weightKg <= 0.5 ? 5.99 : weightKg <= 1 ? 8.99 : 8.99 + (weightKg - 1) * 4;
-    case "GB":
-      return weightKg <= 0.5 ? 6.99 : weightKg <= 1 ? 9.99 : 9.99 + (weightKg - 1) * 4.5;
-    case "CA":
-      return weightKg <= 0.5 ? 6.49 : weightKg <= 1 ? 9.49 : 9.49 + (weightKg - 1) * 4;
-    case "DE":
-    case "FR":
-    case "IT":
-    case "ES":
-    case "NL":
-      return weightKg <= 0.5 ? 7.99 : weightKg <= 1 ? 11.99 : 11.99 + (weightKg - 1) * 5;
-    default:
-      return weightKg <= 0.5 ? 8.99 : weightKg <= 1 ? 13.99 : 13.99 + (weightKg - 1) * 6;
+  
+  // Define rate structure (USD)
+  // Region-based pricing with weight tiers
+  const region = getShippingRegion(country);
+  const baseRates = shippingRates[region];
+  
+  let rate: number;
+  
+  // Weight tier calculation with weight multiplier support
+  if (weightKg <= 0.5) {
+    rate = baseRates.tier1;
+  } else if (weightKg <= 1) {
+    rate = baseRates.tier2;
+  } else if (weightKg <= 3) {
+    rate = baseRates.tier2 + (baseRates.perExtraKg * (weightKg - 1));
+  } else {
+    rate = baseRates.tier2 + (baseRates.perExtraKg * 2) + 
+           (baseRates.extraWeightMultiplier * (weightKg - 3));
   }
+
+  // Minimum floor price for logistics handling
+  return Math.max(Math.round(rate * 100) / 100, baseRates.minFloor);
 }
+
+function getShippingRegion(country: string): 'a' | 'b' | 'c' {
+  const tierA = ["US", "CA", "GB"]; // North America + UK (highest volume)
+  const tierB = ["DE", "FR", "IT", "ES", "NL", "AU", "NZ"]; // EU + Oceania
+  const tierC = ["JP", "KR", "SG", "HK", "TW"]; // Asia
+  
+  if (tierA.includes(country)) return 'a';
+  if (tierB.includes(country)) return 'b';
+  if (tierC.includes(country)) return 'c';
+  
+  return 'a'; // Default to tier A (safest fallback)
+}
+
+// Shipping rate table by region (USD)
+const shippingRates = {
+  a: { // Tier A: US/CA/GB (high volume, competitive rates)
+    tier1: 5.99,           // ≤0.5kg
+    tier2: 8.99,           // ≤1kg  
+    perExtraKg: 4.00,      // + each extra kg
+    extraWeightMultiplier: 1.5,  // >3kg multiplier
+    minFloor: 4.99         // Absolute minimum for handling
+  },
+  b: { // Tier B: EU + Oceania (medium volume)
+    tier1: 7.99,
+    tier2: 11.99,
+    perExtraKg: 5.00,
+    extraWeightMultiplier: 1.8,
+    minFloor: 6.99
+  },
+  c: { // Tier C: Asia (moderate distance)
+    tier1: 6.99,
+    tier2: 10.99,  
+    perExtraKg: 4.50,
+    extraWeightMultiplier: 1.6,
+    minFloor: 5.99
+  }
+};

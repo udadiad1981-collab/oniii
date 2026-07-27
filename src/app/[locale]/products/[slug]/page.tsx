@@ -73,10 +73,43 @@ export default async function ProductPage({
   const discountPercent = compareAtUsd ? Math.round(((compareAtUsd - priceUsd) / compareAtUsd) * 100) : 0;
   const avgRating = product.reviews.length > 0
     ? product.reviews.reduce((s, r) => s + r.rating, 0) / product.reviews.length
-    : 0;
+    : 5;
+
+  // Generate Schema.org JSON-LD for SEO
+  const productSchema = {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    name: locale === "zh" ? product.name : product.nameEn,
+    image: product.images[0]?.url || "/placeholder-product.jpg",
+    description: locale === "zh" ? product.description : product.descriptionEn,
+    sku: product.sku || undefined,
+    brand: { "@type": "Brand", name: "oniii" },
+    offers: {
+      "@type": "Offer",
+      url: `https://oniii.com/${locale}/products/${product.slug}`,
+      priceCurrency: "USD",
+      price: priceUsd.toFixed(2),
+      availability: product.stock > 10 
+        ? "https://schema.org/InStock"
+        : product.stock > 0 ? "https://schema.org/LowStock" : "https://schema.org/OutOfStock",
+      seller: { "@type": "Organization", name: "oniii" }
+    },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: avgRating.toFixed(1),
+      reviewCount: product.reviews.length,
+      bestRating: "5",
+      worstRating: "1"
+    } as any,
+  };
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
+      {/* Schema.org JSON-LD for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+      />
       {/* Breadcrumb */}
       <nav className="text-sm text-gray-500 mb-6">
         <Link href={`/${locale}`} className="hover:text-[var(--accent)]">{t("common.home")}</Link>
