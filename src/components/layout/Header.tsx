@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { useCartStore } from "@/store/cart";
+import OniiiLogo from "@/components/OniiiLogo";
 
 const languages = [
   { code: "en", label: "English" },
@@ -69,9 +70,7 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <Link href={`/${currentLocale}`} className="flex-shrink-0">
-            <span className="text-2xl font-bold tracking-wider text-[var(--primary)]">
-              on<span className="text-[var(--accent)]">iii</span>
-            </span>
+            <OniiiLogo size={36} showText={true} />
           </Link>
 
           <nav className="hidden md:flex items-center gap-8">
