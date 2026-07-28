@@ -132,26 +132,26 @@ export default function AdminDashboard() {
               </div>
             ) : (
               <div className="overflow-x-auto -mx-6 px-6">
-                <table className="w-full min-w-[680px]">
+                <table className="w-full min-w-[720px] table-fixed">
                 <thead className="bg-gray-50/80">
                   <tr className="text-left text-sm text-gray-600 border-b border-gray-200">
-                    <th className="pb-3 font-semibold whitespace-nowrap w-32">Order #</th>
-                    <th className="pb-3 font-semibold whitespace-nowrap">Customer</th>
-                    <th className="pb-3 font-semibold text-right whitespace-nowrap w-28">Amount</th>
-                    <th className="pb-3 font-semibold whitespace-nowrap w-28">Status</th>
-                    <th className="pb-3 font-semibold text-right whitespace-nowrap w-28">Date</th>
+                    <th className="pb-3 font-semibold whitespace-nowrap w-[18%]">Order #</th>
+                    <th className="pb-3 font-semibold whitespace-nowrap w-[38%]">Customer</th>
+                    <th className="pb-3 font-semibold text-right whitespace-nowrap w-[14%]">Amount</th>
+                    <th className="pb-3 font-semibold whitespace-nowrap w-[14%]">Status</th>
+                    <th className="pb-3 font-semibold text-right whitespace-nowrap w-[16%]">Date</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-100">
                   {recentOrders.map((o:any)=>(
                     <tr key={o.id} className="hover:bg-blue-50/30 transition-colors">
                       <td className="py-4 font-mono text-xs text-gray-600">{o.orderNumber}</td>
-                      <td className="py-4 max-w-xs">
-                        <div className="flex items-center gap-3">
+                      <td className="py-4">
+                        <div className="flex items-center gap-3 min-w-0">
                           <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-400 to-indigo-500 flex items-center justify-center text-white font-medium text-xs shadow-md flex-shrink-0">
                             {o.email?.charAt(0)?.toUpperCase() || "C"}
                           </div>
-                          <div className="text-sm font-medium text-gray-900 truncate" title={o.email}>{o.email}</div>
+                          <div className="text-sm font-medium text-gray-900 truncate min-w-0" title={o.email}>{o.email}</div>
                         </div>
                       </td>
                       <td className="py-4 text-right font-bold text-gray-900">${o.total.toFixed(2)}</td>
