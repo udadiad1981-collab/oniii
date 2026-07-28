@@ -131,14 +131,15 @@ export default function AdminDashboard() {
                 <p className="text-sm text-gray-400">Orders will appear here once customers start purchasing</p>
               </div>
             ) : (
-              <table className="w-full">
+              <div className="overflow-x-auto -mx-6 px-6">
+                <table className="w-full min-w-[640px]">
                 <thead className="bg-gray-50/80">
                   <tr className="text-left text-sm text-gray-600 border-b border-gray-200">
-                    <th className="pb-3 font-semibold">Order #</th>
+                    <th className="pb-3 font-semibold w-28">Order #</th>
                     <th className="pb-3 font-semibold">Customer</th>
-                    <th className="pb-3 font-semibold text-right">Amount</th>
-                    <th className="pb-3 font-semibold">Status</th>
-                    <th className="pb-3 font-semibold text-right">Date</th>
+                    <th className="pb-3 font-semibold text-right w-24">Amount</th>
+                    <th className="pb-3 font-semibold w-28">Status</th>
+                    <th className="pb-3 font-semibold text-right w-24">Date</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-100">
@@ -171,6 +172,7 @@ export default function AdminDashboard() {
                   ))}
                 </tbody>
               </table>
+              </div>
             )}
           </div>
         </div>
