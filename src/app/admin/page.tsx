@@ -135,18 +135,18 @@ export default function AdminDashboard() {
                 <table className="w-full min-w-[720px] table-fixed">
                 <thead className="bg-gray-50/80">
                   <tr className="text-left text-sm text-gray-600 border-b border-gray-200">
-                    <th className="pb-3 font-semibold whitespace-nowrap w-[18%]">Order #</th>
-                    <th className="pb-3 font-semibold whitespace-nowrap w-[38%]">Customer</th>
-                    <th className="pb-3 font-semibold text-right whitespace-nowrap w-[14%]">Amount</th>
-                    <th className="pb-3 font-semibold whitespace-nowrap w-[14%]">Status</th>
-                    <th className="pb-3 font-semibold text-right whitespace-nowrap w-[16%]">Date</th>
+                    <th className="px-4 py-3 font-semibold whitespace-nowrap w-[18%]">Order #</th>
+                    <th className="px-4 py-3 font-semibold whitespace-nowrap w-[38%]">Customer</th>
+                    <th className="px-4 py-3 font-semibold text-right whitespace-nowrap w-[14%]">Amount</th>
+                    <th className="px-4 py-3 font-semibold whitespace-nowrap w-[14%]">Status</th>
+                    <th className="px-4 py-3 font-semibold text-right whitespace-nowrap w-[16%]">Date</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-100">
                   {recentOrders.map((o:any)=>(
                     <tr key={o.id} className="hover:bg-blue-50/30 transition-colors">
-                      <td className="py-4 font-mono text-xs text-gray-600">{o.orderNumber}</td>
-                      <td className="py-4">
+                      <td className="px-4 py-4 font-mono text-xs text-gray-600">{o.orderNumber}</td>
+                      <td className="px-4 py-4">
                         <div className="flex items-center gap-3 min-w-0">
                           <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-400 to-indigo-500 flex items-center justify-center text-white font-medium text-xs shadow-md flex-shrink-0">
                             {o.email?.charAt(0)?.toUpperCase() || "C"}
@@ -154,8 +154,8 @@ export default function AdminDashboard() {
                           <div className="text-sm font-medium text-gray-900 truncate min-w-0" title={o.email}>{o.email}</div>
                         </div>
                       </td>
-                      <td className="py-4 text-right font-bold text-gray-900">${o.total.toFixed(2)}</td>
-                      <td className="py-4">
+                      <td className="px-4 py-4 text-right font-bold text-gray-900">${o.total.toFixed(2)}</td>
+                      <td className="px-4 py-4">
                         <span className={`px-3 py-1.5 rounded-full text-xs font-medium ${
                           o.status==="pending"?"bg-amber-100 text-amber-700 border border-amber-200":
                           o.status==="shipped"?"bg-emerald-100 text-emerald-700 border border-emerald-200":
@@ -165,7 +165,7 @@ export default function AdminDashboard() {
                           {o.status?.charAt(0).toUpperCase() + o.status?.slice(1)}
                         </span>
                       </td>
-                      <td className="py-4 text-right">
+                      <td className="px-4 py-4 text-right">
                         <span className="text-xs text-gray-500">{new Date(o.createdAt).toLocaleDateString("en-US",{month:"short",day:"numeric"})}</span>
                       </td>
                     </tr>
