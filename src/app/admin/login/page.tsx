@@ -42,38 +42,88 @@ export default function AdminLoginPage() {
   };
 
   if (checking) {
-    return <div className="min-h-screen flex items-center justify-center"><div className="text-gray-400">检查登录状态...</div></div>;
+    return <div className="min-h-screen flex items-center justify-center"><div><div className="w-8 h-8 border-4 border-blue-600 rounded-full border-t-transparent animate-spin mx-auto mb-3"></div><p className="text-gray-600">Checking...</p></div></div>;
   }
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
-      <div className="bg-white rounded-2xl shadow-lg p-8 w-full max-w-md">
-        <div className="text-center mb-8">
-          <h1 className="text-2xl font-bold text-gray-800">
-            EQ<span className="text-red-500">FRS</span>
-          </h1>
-          <p className="text-gray-500 text-sm mt-1">管理后台登录</p>
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 flex items-center justify-center p-4">
+      <div className="bg-white rounded-3xl shadow-2xl overflow-hidden max-w-md w-full">
+        {/* Header */}
+        <div className="bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-700 p-8 text-white relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-xl -translate-y-8 translate-x-8"></div>
+          <div className="absolute bottom-0 left-0 w-40 h-40 bg-white/5 rounded-full blur-xl translate-y-10 -translate-x-10"></div>
+          <div className="relative">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-12 h-12 rounded-xl bg-white/20 backdrop-blur flex items-center justify-center shadow-lg">
+                <span className="text-white font-bold text-sm">ON</span>
+              </div>
+              <h1 className="text-2xl font-bold">oniii</h1>
+            </div>
+            <p className="text-blue-100 text-sm">Sign in to Management Dashboard</p>
+          </div>
         </div>
-        <form onSubmit={handleSubmit} className="space-y-4">
-          {error && <div className="bg-red-50 text-red-600 px-4 py-3 rounded-lg text-sm">{error}</div>}
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">邮箱</label>
-            <input type="email" value={email} onChange={e => setEmail(e.target.value)}
-              className="w-full px-4 py-2.5 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400"
-              placeholder="admin@oniii.com" required />
-          </div>
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">密码</label>
-            <input type="password" value={password} onChange={e => setPassword(e.target.value)}
-              className="w-full px-4 py-2.5 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400"
-              placeholder="••••••••" required />
-          </div>
-          <button type="submit" disabled={loading}
-            className="w-full bg-[var(--accent)] text-white py-2.5 rounded-lg font-semibold hover:bg-red-600 transition-colors disabled:opacity-50">
-            {loading ? "登录中..." : "登录"}
-          </button>
-        </form>
-        <p className="text-xs text-gray-400 text-center mt-6">默认账号: admin@oniii.com / admin123</p>
+
+        {/* Form */}
+        <div className="p-8">
+          {error && (
+            <div className="mb-6 bg-red-50 border-l-4 border-red-500 text-red-700 px-4 py-3 rounded-lg flex items-start gap-3">
+              <span className="text-xl">⚠</span>
+              <div className="text-sm">{error}</div>
+            </div>
+          )}
+
+          <form onSubmit={handleSubmit} className="space-y-5">
+            {/* Email */}
+            <div>
+              <label className="block text-sm font-semibold text-gray-700 mb-2">Email Address</label>
+              <div className="relative">
+                <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">✉</span>
+                <input type="email" value={email} onChange={e => setEmail(e.target.value)}
+                  className="w-full pl-12 pr-4 py-3.5 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-50 hover:bg-white transition-colors"
+                  placeholder="admin@example.com" required />
+              </div>
+            </div>
+
+            {/* Password */}
+            <div>
+              <label className="block text-sm font-semibold text-gray-700 mb-2">Password</label>
+              <div className="relative">
+                <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">🔐</span>
+                <input type="password" value={password} onChange={e => setPassword(e.target.value)}
+                  className="w-full pl-12 pr-4 py-3.5 border border-gray-200 rounded-xl focused:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-50 hover:bg-white transition-colors"
+                  placeholder="Enter your password" required />
+              </div>
+            </div>
+
+            {/* Submit */}
+            <button type="submit" disabled={loading}
+              className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white py-3.5 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed transform hover:-translate-y-0.5">
+              {loading ? (
+                <span className="flex items-center justify-center gap-2">
+                  <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                  Signing in...
+                </span>
+              ) : (
+                "Sign In →"
+              )}
+            </button>
+
+            {/* Helper text */}
+            <div className="text-center pt-4 border-t">
+              <p className="text-xs text-gray-500">
+                Default credentials: 
+                <span className="ml-2 font-mono bg-gray-100 px-2 py-0.5 rounded text-blue-600">admin@oniii.com</span>
+                <span className="mx-2 text-gray-400">|</span>
+                <span className="font-mono bg-gray-100 px-2 py-0.5 rounded text-red-600">admin123</span>
+              </p>
+            </div>
+          </form>
+        </div>
+
+        {/* Footer */}
+        <div className="bg-gray-50 border-t px-8 py-4">
+          <p className="text-xs text-gray-500 text-center">By signing in, you agree to our Terms and Privacy Policy</p>
+        </div>
       </div>
     </div>
   );

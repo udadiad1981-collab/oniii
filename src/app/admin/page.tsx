@@ -33,48 +33,185 @@ export default function AdminDashboard() {
     router.push("/admin/login");
   };
 
-  if (loading) return <div className="min-h-screen flex items-center justify-center"><div className="text-gray-400">加载中...</div></div>;
+  if (loading) return <div className="min-h-screen flex items-center justify-center"><div><div className="w-8 h-8 border-4 border-blue-600 rounded-full border-t-transparent animate-spin mx-auto mb-3"></div><p className="text-gray-600">Loading...</p></div></div>;
 
   return (
-    <div className="flex min-h-screen">
-      <aside className="w-60 bg-gray-900 text-white flex-shrink-0 hidden md:block">
-        <div className="p-6">
-          <h2 className="text-xl font-bold tracking-wider">EQ<span className="text-red-500">FRS</span></h2>
-          <p className="text-xs text-gray-400 mt-1">管理后台</p>
+    <div className="flex min-h-screen bg-gradient-to-br from-slate-50 to-blue-50/30">
+      {/* Side Navigation */}
+      <aside className="w-64 bg-gradient-to-b from-slate-900 via-blue-950 to-slate-900 text-white flex-shrink-0 hidden md:block shadow-xl">
+        <div className="p-6 border-b border-white/10">
+          <div className="flex items-center gap-3 mb-2">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center shadow-lg">
+              <span className="text-white font-bold text-sm">ON</span>
+            </div>
+            <div>
+              <h2 className="text-lg font-bold tracking-wide">oniii</h2>
+              <p className="text-xs text-blue-300">Management</p>
+            </div>
+          </div>
         </div>
-        <nav className="px-3 py-2">
-          {[{label:"📊 数据看板",href:"/admin"},{label:"📦 商品管理",href:"/admin/products"},{label:"📋 订单管理",href:"/admin/orders"},{label:"🏠 返回网站",href:"/en"}].map(item=>(
-            <Link key={item.href} href={item.href} className="flex items-center gap-3 px-4 py-3 rounded-lg text-sm text-gray-300 hover:bg-gray-800 hover:text-white transition-colors mb-1">
+<nav className="p-4">
+          {[{label:"Dashboard",icon:"[D]",href:"/admin",active:true},
+            {label:"Products",icon:"◇",href:"/admin/products"},
+            {label:"Orders",icon:"◎",href:"/admin/orders"},
+            {label:"Categories",icon:"≡",href:"/admin/categories"}].map((item,i)=>(
+            <Link key={i} href={item.href} className={`flex items-center gap-3 px-4 py-3 rounded-xl text-sm mb-2 transition-all ${item.active?"bg-white/15 backdrop-blur font-semibold text-white":"text-blue-200 hover:bg-white/5"}`}>
+              <span className="opacity-80 text-base min-w-[1.5rem]">{item.icon}</span>
               {item.label}
             </Link>
           ))}
+
+          <div className="border-t border-white/10 pt-4 mt-4">
+            <Link href="/en" className="flex items-center gap-3 px-4 py-3 rounded-xl text-sm bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 transition-all text-white font-medium shadow-md">
+              <span className="opacity-80 text-base min-w-[1.5rem]">↗</span> Visit Store →
+            </Link>
+          </div>
         </nav>
-        <div className="absolute bottom-0 left-0 w-60 p-4 border-t border-gray-800">
-          <div className="text-sm text-gray-400 mb-2">{user?.email || ""}</div>
-          <button onClick={handleLogout} className="text-xs text-red-400 hover:text-red-300">退出登录</button>
+
+        <div className="p-4">
+          <div className="bg-white/10 rounded-xl p-3 backdrop-blur-sm">
+            <div className="text-xs text-blue-200 mb-1 truncate">{user?.email || ""}</div>
+            <button onClick={handleLogout} className="text-xs text-blue-300 hover:text-white transition-colors">Sign Out ←</button>
+          </div>
         </div>
       </aside>
 
-      <main className="flex-1 p-6 pb-20 md:pb-6">
-        <h1 className="text-2xl font-bold text-gray-800 mb-2">📊 数据看板</h1>
-        <p className="text-sm text-gray-500 mb-6">欢迎回来，管理员</p>
+      {/* Main Content */}
+      <main className="flex-1 p-8 pt-8 max-w-7xl mx-auto">
+        {/* Welcome Header */}
+        <div className="flex items-center justify-between mb-8">
+          <div>
+            <h1 className="text-3xl font-bold text-gray-900 mb-2">Dashboard</h1>
+            <p className="text-gray-600 text-sm">Welcome back, {user?.email?.split("@")[0]}! Here's what's happening today.</p>
+          </div>
+          <div className="flex items-center gap-3">
+            <span className="px-4 py-2 bg-white rounded-full shadow-md text-sm font-medium text-gray-700">
+              Today: {new Date().toLocaleDateString("en-US",{weekday:"short",month:"short",day:"numeric"})}
+            </span>
+          </div>
+        </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-          {[{label:"商品总数",value:stats.products,icon:"📦"},{label:"订单总数",value:stats.orders,icon:"📋"},{label:"用户总数",value:stats.users,icon:"👥"},{label:"总销售额",value:"$"+stats.revenue.toFixed(2),icon:"💰"}].map(card=>(
-            <div key={card.label} className="bg-white rounded-xl p-6 border"><div className="flex items-center gap-3 mb-3"><span className="text-2xl">{card.icon}</span><span className="text-sm text-gray-500">{card.label}</span></div><div className="text-2xl font-bold">{card.value}</div></div>
+        {/* Stats Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+          {[{label:"Total Products",value:stats.products,unit:"",color:"from-blue-500 to-indigo-600",shadow:"bg-blue-100"},
+            {label:"Total Orders",value:stats.orders,unit:"",color:"from-emerald-500 to-teal-600",shadow:"bg-green-100"},
+            {label:"Customers",value:stats.users,unit:"",color:"from-purple-500 to-pink-600",shadow:"bg-purple-100"},
+            {label:"Revenue",value:"$"+stats.revenue.toFixed(2),unit:"",color:"from-amber-500 to-orange-600",shadow:"bg-amber-100"}].map((card,i)=>(
+            <div key={i} className="group relative overflow-hidden bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100">
+              <div className={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r ${card.color}`}></div>
+              <div className="p-6">
+                <div className={`inline-flex items-center justify-center w-12 h-12 rounded-full ${card.shadow} mb-4`}>
+                  <span className="text-2xl">{i===0?"📦":i===1?"📋":i===2?"👥":"💵"}</span>
+                </div>
+                <div className="mb-2">
+                  <div className="text-3xl font-bold text-gray-900">{card.value}{card.unit}</div>
+                </div>
+                <p className={`text-sm font-medium ${card.shadow.split("-")[0]}-600`}>{card.label}</p>
+              </div>
+            </div>
           ))}
         </div>
 
-        <div className="bg-white rounded-xl border p-6">
-          <h2 className="font-bold text-lg mb-4">📋 最近订单</h2>
-          {recentOrders.length===0 ? <p className="text-gray-400 text-sm py-8 text-center">暂无订单</p> : (
-            <table className="w-full text-sm">
-              <thead><tr className="border-b text-left text-gray-500"><th className="pb-3">订单号</th><th className="pb-3">客户</th><th className="pb-3">金额</th><th className="pb-3">状态</th><th className="pb-3">时间</th></tr></thead>
-              <tbody>{recentOrders.map((o:any)=>(
-                <tr key={o.id} className="border-b last:border-0"><td className="py-3 font-mono text-xs">{o.orderNumber}</td><td className="py-3">{o.email}</td><td className="py-3">${o.total.toFixed(2)}</td><td className="py-3"><span className={`px-2 py-0.5 rounded-full text-xs ${o.status==="pending"?"bg-yellow-100 text-yellow-700":o.status==="shipped"?"bg-green-100 text-green-700":"bg-gray-100"}`}>{o.status}</span></td><td className="py-3 text-xs text-gray-400">{new Date(o.createdAt).toLocaleDateString()}</td></tr>
-              ))}</tbody>
-            </table>
-          )}
+        {/* Recent Orders */}
+        <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+          <div className="bg-gradient-to-r from-slate-50 to-white border-b px-6 py-4">
+            <div className="flex items-center justify-between">
+              <h2 className="font-bold text-gray-900 text-lg">Recent Orders</h2>
+              <Link href="/admin/orders" className="text-sm text-blue-600 hover:text-blue-800 font-medium">View All →</Link>
+            </div>
+          </div>
+
+          <div className="p-6">
+            {recentOrders.length===0 ? (
+              <div className="text-center py-12">
+                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gray-50 flex items-center justify-center">
+                  <span className="text-3xl">🛒</span>
+                </div>
+                <p className="text-gray-500 font-medium mb-2">No orders yet</p>
+                <p className="text-sm text-gray-400">Orders will appear here once customers start purchasing</p>
+              </div>
+            ) : (
+              <table className="w-full">
+                <thead className="bg-gray-50/80">
+                  <tr className="text-left text-sm text-gray-600 border-b border-gray-200">
+                    <th className="pb-3 font-semibold">Order #</th>
+                    <th className="pb-3 font-semibold">Customer</th>
+                    <th className="pb-3 font-semibold text-right">Amount</th>
+                    <th className="pb-3 font-semibold">Status</th>
+                    <th className="pb-3 font-semibold text-right">Date</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-100">
+                  {recentOrders.map((o:any)=>(
+                    <tr key={o.id} className="hover:bg-blue-50/30 transition-colors">
+                      <td className="py-4 font-mono text-xs text-gray-600">{o.orderNumber}</td>
+                      <td className="py-4">
+                        <div className="flex items-center gap-3">
+                          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-400 to-indigo-500 flex items-center justify-center text-white font-medium text-xs shadow-md">
+                            {o.email?.charAt(0)?.toUpperCase() || "C"}
+                          </div>
+                          <div className="text-sm font-medium text-gray-900">{o.email}</div>
+                        </div>
+                      </td>
+                      <td className="py-4 text-right font-bold text-gray-900">${o.total.toFixed(2)}</td>
+                      <td className="py-4">
+                        <span className={`px-3 py-1.5 rounded-full text-xs font-medium ${
+                          o.status==="pending"?"bg-amber-100 text-amber-700 border border-amber-200":
+                          o.status==="shipped"?"bg-emerald-100 text-emerald-700 border border-emerald-200":
+                          o.status==="completed"?"bg-blue-100 text-blue-700 border border-blue-200":
+                          "bg-gray-100 text-gray-700"
+                        }`}>
+                          {o.status?.charAt(0).toUpperCase() + o.status?.slice(1)}
+                        </span>
+                      </td>
+                      <td className="py-4 text-right">
+                        <span className="text-xs text-gray-500">{new Date(o.createdAt).toLocaleDateString("en-US",{month:"short",day:"numeric"})}</span>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            )}
+          </div>
+        </div>
+
+        {/* Quick Actions */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
+          <Link href="/admin/products/new" className="group bg-gradient-to-br from-blue-50 to-indigo-100 rounded-xl p-6 hover:shadow-lg transition-all border border-blue-200/50">
+            <div className="flex items-start gap-4">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white shadow-md group-hover:scale-110 transition-transform">
+                <span className="text-xl font-bold">+</span>
+              </div>
+              <div>
+                <h3 className="font-bold text-gray-900 mb-1">Add New Product</h3>
+                <p className="text-sm text-gray-600">Create a new product listing</p>
+              </div>
+            </div>
+          </Link>
+
+          <Link href="/admin/products/batch-import" className="group bg-gradient-to-br from-emerald-50 to-teal-100 rounded-xl p-6 hover:shadow-lg transition-all border border-emerald-200/50">
+            <div className="flex items-start gap-4">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center text-white shadow-md group-hover:scale-110 transition-transform">
+                <span className="text-xl font-bold">⇄</span>
+              </div>
+              <div>
+                <h3 className="font-bold text-gray-900 mb-1">Batch Import</h3>
+                <p className="text-sm text-gray-600">Bulk upload products from CSV</p>
+              </div>
+            </div>
+          </Link>
+
+          <a href="/en" className="group bg-gradient-to-br from-purple-50 to-pink-100 rounded-xl p-6 hover:shadow-lg transition-all border border-purple-200/50">
+            <div className="flex items-start gap-4">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center text-white shadow-md group-hover:rotate-12 transition-transform">
+                <span className="text-xl font-bold">→</span>
+              </div>
+              <div>
+                <h3 className="font-bold text-gray-900 mb-1">Visit Store</h3>
+                <p className="text-sm text-gray-600">View your live website</p>
+              </div>
+            </div>
+          </a>
         </div>
       </main>
     </div>
