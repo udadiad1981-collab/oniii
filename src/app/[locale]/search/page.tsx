@@ -17,8 +17,8 @@ export async function generateMetadata({
 
   if (sp.q) {
     return {
-      title: `Search: ${sp.q}`,
-      description: `Search results for "${sp.q}" on oniii`,
+      title: `搜尋：${sp.q}`,
+      description: `搜尋結果 for "${sp.q}" on oniii`,
     };
   }
 

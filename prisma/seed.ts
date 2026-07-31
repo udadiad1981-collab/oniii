@@ -107,6 +107,8 @@ async function main() {
         stock: data.stock,
         categoryId: data.categoryId,
         status: "published",
+        seoTitle: data.seoTitle,
+        seoDesc: data.seoDesc,
         featured: data.featured || false,
         material: data.material,
         dimensions: data.dimensions,
@@ -125,6 +127,7 @@ async function main() {
   // ===== ELECTRONICS (8 products) =====
   await createProduct({
     name: "真無線降噪藍牙耳機 Pro",
+    seoTitle: "真無線降噪藍牙耳機 Pro | oniii",
     nameEn: "True Wireless Noise-Cancelling Earbuds Pro",
     slug: "wireless-earbuds-pro",
     description: "高品质真无线蓝牙耳机，支持主动降噪，续航8小时，IPX5防水，触控操作。高清音质，低延迟游戏模式。兼容iOS和Android。",
@@ -142,6 +145,7 @@ async function main() {
 
   await createProduct({
     name: "智能手錶 Ultra 系列",
+    seoTitle: "智能手錶 Ultra 系列 | oniii",
     nameEn: "Smart Watch Ultra Series",
     slug: "smart-watch-ultra",
     description: "1.9英寸AMOLED屏幕，心率/血氧/睡眠监测，100+运动模式，IP68防水，14天续航。支持蓝牙通话和消息提醒。",
@@ -157,6 +161,7 @@ async function main() {
 
   await createProduct({
     name: "65W GaN 快速充電器",
+    seoTitle: "65W GaN 快速充電器 | oniii",
     nameEn: "65W GaN Fast Charger",
     slug: "gan-fast-charger-65w",
     description: "氮化镓黑科技，65W大功率，支持PD3.0/QC4.0快充协议。可同时充笔记本、平板和手机。体积小巧，折叠插脚便于携带。",
@@ -172,6 +177,7 @@ async function main() {
 
   await createProduct({
     name: "便攜式藍牙音箱 360°環繞聲",
+    seoTitle: "便攜式藍牙音箱 360°環繞聲 | oniii",
     nameEn: "Portable Bluetooth Speaker 360° Surround",
     slug: "portable-bluetooth-speaker-360",
     description: "360°环绕立体声，20W大功率，IPX7防水，TWS串联。12小时续航，支持免提通话和TF卡播放。户外派对必备。",
@@ -186,6 +192,7 @@ async function main() {
 
   await createProduct({
     name: "4K WiFi 迷你投影機",
+    seoTitle: "4K WiFi 迷你投影機 | oniii",
     nameEn: "4K WiFi Mini Projector",
     slug: "4k-wifi-mini-projector",
     description: "支持4K解码，1080P物理分辨率，WiFi6无线投屏，自动梯形校正。LED光源30000小时寿命，适合家庭影院。",
@@ -201,6 +208,7 @@ async function main() {
 
   await createProduct({
     name: "手機三軸穩定器雲台",
+    seoTitle: "手機三軸穩定器雲台 | oniii",
     nameEn: "3-Axis Smartphone Gimbal Stabilizer",
     slug: "smartphone-gimbal-stabilizer",
     description: "三轴防抖云台，AI智能追踪，手势控制，一键切换横竖屏。支持主流手机，抖音/YouTube拍摄神器。",
@@ -214,6 +222,7 @@ async function main() {
 
   await createProduct({
     name: "USB-C 擴展塢 12合1",
+    seoTitle: "USB-C 擴展塢 12合1 | oniii",
     nameEn: "USB-C Hub 12-in-1 Docking Station",
     slug: "usb-c-hub-12in1",
     description: "12合1多功能扩展坞：HDMI 4K@60Hz、VGA、3×USB3.0、SD/TF卡槽、千兆网口、PD100W充电、3.5mm音频。MacBook/Windows通用。",
@@ -228,6 +237,7 @@ async function main() {
 
   await createProduct({
     name: "RGB 機械鍵盤 無線三模",
+    seoTitle: "RGB 機械鍵盤 無線三模 | oniii",
     nameEn: "RGB Mechanical Keyboard Wireless Tri-Mode",
     slug: "rgb-mechanical-keyboard-wireless",
     description: "87键紧凑布局，热插拔轴体，RGB背光22种灯效。支持蓝牙5.0/2.4G/USB-C三模连接，4000mAh大电池。",
@@ -242,6 +252,7 @@ async function main() {
   // ===== CLOTHING (8 products) =====
   await createProduct({
     name: "真絲刺繡旗袍連衣裙",
+    seoTitle: "真絲刺繡旗袍連衣裙 | oniii",
     nameEn: "Silk Embroidered Qipao Dress",
     slug: "silk-embroidered-qipao-dress",
     description: "100%桑蚕丝面料，手工刺绣牡丹图案。经典立领斜襟设计，修身显瘦。适合晚宴、婚礼、节日庆典。多种颜色可选。",
@@ -258,6 +269,7 @@ async function main() {
 
   await createProduct({
     name: "純棉亞麻寬鬆襯衫",
+    seoTitle: "純棉亞麻寬鬆襯衫 | oniii",
     nameEn: "Cotton Linen Relaxed Shirt",
     slug: "cotton-linen-relaxed-shirt",
     description: "天然棉麻混纺面料，透气舒适。宽松版型，日系简约风格。适合春夏季节，商务休闲两相宜。",
@@ -272,6 +284,7 @@ async function main() {
 
   await createProduct({
     name: "真皮手工斜挎包 復古風",
+    seoTitle: "真皮手工斜挎包 復古風 | oniii",
     nameEn: "Genuine Leather Handmade Crossbody Bag Vintage",
     slug: "genuine-leather-crossbody-bag",
     description: "头层牛皮手工制作，复古做旧工艺。大容量多隔层设计，可调节肩带。适合日常通勤和旅行。",
@@ -288,6 +301,7 @@ async function main() {
 
   await createProduct({
     name: "羊絨圍巾 雙面印花",
+    seoTitle: "羊絨圍巾 雙面印花 | oniii",
     nameEn: "Cashmere Scarf Double-Sided Print",
     slug: "cashmere-scarf-double-sided",
     description: "100%内蒙古山羊绒，双面印花工艺。柔软保暖不扎脖，尺寸200×70cm。精美礼盒包装。",
@@ -304,6 +318,7 @@ async function main() {
 
   await createProduct({
     name: "竹纖維抗菌襪 6 雙裝",
+    seoTitle: "竹纖維抗菌襪 6 雙裝 | oniii",
     nameEn: "Bamboo Fiber Antibacterial Socks 6-Pack",
     slug: "bamboo-fiber-socks-6pack",
     description: "天然竹纤维材质，天然抗菌除臭，吸湿透气。无骨缝合工艺，不磨脚。男女通用均码，6双混色装。",
@@ -318,6 +333,7 @@ async function main() {
 
   await createProduct({
     name: "中式盤扣棉麻外套",
+    seoTitle: "中式盤扣棉麻外套 | oniii",
     nameEn: "Chinese Knot-Button Cotton Linen Jacket",
     slug: "chinese-knot-button-jacket",
     description: "改良中式设计，传统盘扣元素。棉麻面料舒适透气，可做外套或开衫。东方美学与现代剪裁的完美融合。",
@@ -332,6 +348,7 @@ async function main() {
 
   await createProduct({
     name: "桑蠶絲方巾 水墨畫印花",
+    seoTitle: "桑蠶絲方巾 水墨畫印花 | oniii",
     nameEn: "Silk Square Scarf Ink-Wash Painting Print",
     slug: "silk-square-scarf-ink-painting",
     description: "100%桑蚕丝，中国传统水墨画数码印花。90×90cm经典尺寸，手工卷边。精致礼盒，送礼首选。",
@@ -347,6 +364,7 @@ async function main() {
 
   await createProduct({
     name: "超輕防曬皮膚衣 UPF50+",
+    seoTitle: "超輕防曬皮膚衣 UPF50+ | oniii",
     nameEn: "Ultra-Light UV Protection Jacket UPF50+",
     slug: "uv-protection-jacket-upf50",
     description: "UPF50+高倍防晒，超轻薄仅重90g。透气速干面料，可收纳至口袋。适合户外运动、旅行、日常通勤。",
@@ -362,6 +380,7 @@ async function main() {
   // ===== HOME & LIVING (8 products) =====
   await createProduct({
     name: "純棉刺繡床上四件套",
+    seoTitle: "純棉刺繡床上四件套 | oniii",
     nameEn: "Cotton Embroidered Bedding Set 4-Piece",
     slug: "cotton-embroidered-bedding-set",
     description: "60支长绒棉面料，精致刺绣工艺。包含被套1件、床单1件、枕套2件。柔软亲肤，四季通用。多尺寸可选。",
@@ -378,6 +397,7 @@ async function main() {
 
   await createProduct({
     name: "陶瓷功夫茶具套裝 12件",
+    seoTitle: "陶瓷功夫茶具套裝 12件 | oniii",
     nameEn: "Ceramic Kung Fu Tea Set 12-Piece",
     slug: "ceramic-kung-fu-tea-set",
     description: "宜兴紫砂工艺，12件全套：茶壶、公道杯、6只品茗杯、茶漏、茶夹、茶巾、茶盘。精美礼盒装。",
@@ -394,6 +414,7 @@ async function main() {
 
   await createProduct({
     name: "記憶棉護頸枕頭",
+    seoTitle: "記憶棉護頸枕頭 | oniii",
     nameEn: "Memory Foam Cervical Pillow",
     slug: "memory-foam-cervical-pillow",
     description: "慢回弹记忆棉，人体工学曲线设计，有效支撑颈椎。透气冰丝枕套，可拆洗。缓解颈椎疲劳，改善睡眠质量。",
@@ -410,6 +431,7 @@ async function main() {
 
   await createProduct({
     name: "LED 護眼檯燈 智能調光",
+    seoTitle: "LED 護眼檯燈 智能調光 | oniii",
     nameEn: "LED Eye-Care Desk Lamp Smart Dimming",
     slug: "led-eye-care-desk-lamp",
     description: "无频闪无蓝光危害，RA≥95高显色。智能感光自动调光，45分钟定时休息提醒。多角度调节，适合学习办公。",
@@ -423,6 +445,7 @@ async function main() {
 
   await createProduct({
     name: "不鏽鋼保溫杯 真空雙層",
+    seoTitle: "不鏽鋼保溫杯 真空雙層 | oniii",
     nameEn: "Stainless Steel Vacuum Insulated Bottle",
     slug: "stainless-steel-insulated-bottle",
     description: "316不锈钢内胆，真空双层保温12小时/保冷24小时。500ml容量，食品级硅胶密封圈。BPA-free，适合咖啡/茶/水。",
@@ -438,6 +461,7 @@ async function main() {
 
   await createProduct({
     name: "手工編織竹收納籃 3件套",
+    seoTitle: "手工編織竹收納籃 3件套 | oniii",
     nameEn: "Hand-Woven Bamboo Storage Baskets 3-Pack",
     slug: "hand-woven-bamboo-baskets-3pack",
     description: "天然竹材手工编织，环保无异味。大中小三件套，可折叠收纳。适合衣物、玩具、杂物整理。",
@@ -452,6 +476,7 @@ async function main() {
 
   await createProduct({
     name: "超聲波香薰機 加濕器二合一",
+    seoTitle: "超聲波香薰機 加濕器二合一 | oniii",
     nameEn: "Ultrasonic Aroma Diffuser & Humidifier 2-in-1",
     slug: "aroma-diffuser-humidifier",
     description: "300ml大容量，超声波静音雾化。7色LED氛围灯，自动断电保护。可添加精油，营造温馨居家氛围。",
@@ -466,6 +491,7 @@ async function main() {
 
   await createProduct({
     name: "防水防油桌布 北歐风格",
+    seoTitle: "防水防油桌布 北歐风格 | oniii",
     nameEn: "Waterproof Oil-Proof Tablecloth Nordic Style",
     slug: "waterproof-tablecloth-nordic",
     description: "PVC防水涂层+棉布底衬，防油防烫。北欧简约图案设计，一擦即净。多种尺寸和花色可选。",
@@ -481,6 +507,7 @@ async function main() {
   // ===== HANDICRAFTS (8 products) =====
   await createProduct({
     name: "双面蜀繡团扇 傳統手工",
+    seoTitle: "双面蜀繡团扇 傳統手工 | oniii",
     nameEn: "Double-Sided Shu Embroidery Fan Handmade",
     slug: "shu-embroidery-fan-handmade",
     description: "四川蜀绣非遗传承，双面刺绣花鸟图案。竹骨真丝扇面，配精美扇架。收藏送礼两相宜。",
@@ -496,6 +523,7 @@ async function main() {
 
   await createProduct({
     name: "手工剪紙艺术 十二生肖套裝",
+    seoTitle: "手工剪紙艺术 十二生肖套裝 | oniii",
     nameEn: "Handmade Paper-Cut Art Chinese Zodiac Set",
     slug: "paper-cut-art-zodiac-set",
     description: "非遗手工剪纸，十二生肖全套12张。红色宣纸精剪，附相框可装裱。中国传统文化的完美收藏品。",
@@ -511,6 +539,7 @@ async function main() {
 
   await createProduct({
     name: "景德鎮手绘青花瓷瓶",
+    seoTitle: "景德鎮手绘青花瓷瓶 | oniii",
     nameEn: "Jingdezhen Hand-Painted Blue & White Porcelain Vase",
     slug: "jingdezhen-blue-white-vase",
     description: "景德镇高岭土手工拉坯，传统青花手绘。1300°C高温烧制，釉面温润如玉。每件独一无二的艺术品。",
@@ -527,6 +556,7 @@ async function main() {
 
   await createProduct({
     name: "竹编工藝燈籠 中式裝饰",
+    seoTitle: "竹编工藝燈籠 中式裝饰 | oniii",
     nameEn: "Bamboo Woven Decorative Lantern Chinese Style",
     slug: "bamboo-woven-lantern",
     description: "手工竹编工艺，内嵌LED暖光灯。直径30cm，可悬挂或摆放。中式庭院、茶室、餐厅氛围装饰首选。",
@@ -542,6 +572,7 @@ async function main() {
 
   await createProduct({
     name: "水墨画宣紙卷軸掛畫",
+    seoTitle: "水墨画宣紙卷軸掛畫 | oniii",
     nameEn: "Ink Wash Painting on Rice Paper Scroll",
     slug: "ink-wash-painting-scroll",
     description: "当代水墨画家原创手绘，宣纸卷轴装裱。山水花鸟主题，长约150cm。中式家居、茶空间装饰佳品。",
@@ -557,6 +588,7 @@ async function main() {
 
   await createProduct({
     name: "纯手工刺绣杯墊 6枚裝",
+    seoTitle: "纯手工刺绣杯墊 6枚裝 | oniii",
     nameEn: "Hand-Embroidered Coasters Set of 6",
     slug: "hand-embroidered-coasters-6pack",
     description: "苏绣工艺手工刺绣，花鸟鱼虫图案。棉麻底布+刺绣面，隔热防滑。6枚不同图案，礼盒包装。",
@@ -571,6 +603,7 @@ async function main() {
 
   await createProduct({
     name: "漆器首飾盒 雕花工藝",
+    seoTitle: "漆器首飾盒 雕花工藝 | oniii",
     nameEn: "Lacquerware Jewelry Box Carved Design",
     slug: "lacquerware-jewelry-box",
     description: "传统大漆工艺，多层雕花。内衬天鹅绒，多层分区收纳。精美复古中式风格，传家品质。",
@@ -586,6 +619,7 @@ async function main() {
 
   await createProduct({
     name: "中國結 手工編織 吉祥掛飾",
+    seoTitle: "中國結 手工編織 吉祥掛飾 | oniii",
     nameEn: "Chinese Knot Handmade Auspicious Wall Hanging",
     slug: "chinese-knot-wall-hanging",
     description: "传统手工编织中国结，寓意吉祥如意。配流苏和玉珠装饰，长约60cm。家居、车内装饰，节日送礼首选。",
@@ -602,6 +636,7 @@ async function main() {
   // ===== FOOD & TEA (8 products) =====
   await createProduct({
     name: "西湖龍井 明前特级綠茶 250g",
+    seoTitle: "西湖龍井 明前特级綠茶 250g | oniii",
     nameEn: "West Lake Longjing Pre-Qingming Green Tea 250g",
     slug: "longjing-green-tea-premium",
     description: "正宗杭州西湖产区，明前采摘一芽一叶。色绿、香郁、味甘、形美。传统手工炒制，铁盒密封保鲜。",
@@ -617,6 +652,7 @@ async function main() {
 
   await createProduct({
     name: "云南普洱茶 古树熟茶 357g餅",
+    seoTitle: "云南普洱茶 古树熟茶 357g餅 | oniii",
     nameEn: "Yunnan Pu-erh Ancient Tree Ripe Tea 357g Cake",
     slug: "puerh-ancient-tree-ripe",
     description: "云南勐海古树茶园，传统渥堆发酵。汤色红浓明亮，口感醇厚顺滑，陈香显著。越陈越香，收藏佳品。",
@@ -630,6 +666,7 @@ async function main() {
 
   await createProduct({
     name: "手工牛軋糖 經典花生味 500g",
+    seoTitle: "手工牛軋糖 經典花生味 500g | oniii",
     nameEn: "Handmade Nougat Classic Peanut Flavor 500g",
     slug: "handmade-nougat-peanut",
     description: "纯手工制作，新西兰奶粉+美国杏仁+山东花生。奶香浓郁，软硬适中不粘牙。独立包装，新鲜直达。",
@@ -643,6 +680,7 @@ async function main() {
 
   await createProduct({
     name: "有機枸杞 寧夏特级 250g",
+    seoTitle: "有機枸杞 寧夏特级 250g | oniii",
     nameEn: "Organic Goji Berries Ningxia Premium 250g",
     slug: "organic-goji-berries-ningxia",
     description: "宁夏中宁有机种植，自然晾晒无硫熏。颗粒饱满肉厚，天然甜味。可直接食用、泡茶、煲汤。",
@@ -656,6 +694,7 @@ async function main() {
 
   await createProduct({
     name: "龍口粉絲 傳統工藝 500g×3袋",
+    seoTitle: "龍口粉絲 傳統工藝 500g×3袋 | oniii",
     nameEn: "Longkou Vermicelli Traditional Craft 500g×3 Pack",
     slug: "longkou-vermicelli-traditional",
     description: "山东龙口传统工艺，绿豆豌豆纯粮制作。晶莹剔透，爽滑筋道。火锅、凉拌、炒菜皆宜。",
@@ -669,6 +708,7 @@ async function main() {
 
   await createProduct({
     name: "桂花烏龍茶 台灣高山 150g",
+    seoTitle: "桂花烏龍茶 台灣高山 150g | oniii",
     nameEn: "Osmanthus Oolong Tea Taiwan High Mountain 150g",
     slug: "osmanthus-oolong-taiwan",
     description: "台湾阿里山高山乌龙，天然桂花窨制。花香茶韵完美融合，回甘持久。真空密封罐装保鲜。",
@@ -683,6 +723,7 @@ async function main() {
 
   await createProduct({
     name: "纯芝麻醬 傳統石磨 350g",
+    seoTitle: "纯芝麻醬 傳統石磨 350g | oniii",
     nameEn: "Pure Sesame Paste Traditional Stone-Ground 350g",
     slug: "pure-sesame-paste-stone-ground",
     description: "传统石磨低温研磨，100%纯芝麻无添加。浓郁醇香，拌面火锅蘸料必备。百年老字号工艺。",
@@ -696,6 +737,7 @@ async function main() {
 
   await createProduct({
     name: "紅棗核桃糕 養生零食 500g",
+    seoTitle: "紅棗核桃糕 養生零食 500g | oniii",
     nameEn: "Red Date Walnut Cake Healthy Snack 500g",
     slug: "red-date-walnut-cake",
     description: "新疆红枣+云南核桃，古法蒸制。不添加防腐剂和色素，软糯香甜。补气血养生零食。",
@@ -710,6 +752,7 @@ async function main() {
   // ===== BEAUTY (4 products) =====
   await createProduct({
     name: "珍珠粉美白面膜 10片裝",
+    seoTitle: "珍珠粉美白面膜 10片裝 | oniii",
     nameEn: "Pearl Powder Whitening Sheet Mask 10-Pack",
     slug: "pearl-powder-whitening-mask",
     description: "天然淡水珍珠粉+烟酰胺+玻尿酸。美白淡斑，补水保湿。天丝膜布轻薄服帖，适合所有肤质。",
@@ -723,6 +766,7 @@ async function main() {
 
   await createProduct({
     name: "蠶絲蛋白洗髮水 500ml",
+    seoTitle: "蠶絲蛋白洗髮水 500ml | oniii",
     nameEn: "Silk Protein Shampoo 500ml",
     slug: "silk-protein-shampoo",
     description: "水解蚕丝蛋白+何首乌提取物，修护受损发质。无硅油配方，温和清洁。适合干枯毛躁发质。",
@@ -736,6 +780,7 @@ async function main() {
 
   await createProduct({
     name: "中藥草本足浴包 30包/盒",
+    seoTitle: "中藥草本足浴包 30包/盒 | oniii",
     nameEn: "Herbal Foot Soak Bags Traditional Chinese 30-Pack",
     slug: "herbal-foot-soak-bags",
     description: "艾草、红花、生姜、当归等八味中药材配制。泡脚驱寒暖身，缓解疲劳，改善睡眠。独立包装，使用方便。",
@@ -749,6 +794,7 @@ async function main() {
 
   await createProduct({
     name: "玉石滚轮美容儀 臉部按摩",
+    seoTitle: "玉石滚轮美容儀 臉部按摩 | oniii",
     nameEn: "Jade Roller Facial Massage Beauty Tool",
     slug: "jade-roller-facial-massage",
     description: "天然岫玉滚轮+不锈钢刮痧板套装。促进面部血液循环，消除水肿，提拉紧致。日常美容护理必备。",
@@ -764,6 +810,7 @@ async function main() {
   // ===== SPORTS (4 products) =====
   await createProduct({
     name: "瑜伽墊 TPE環保双面防滑",
+    seoTitle: "瑜伽墊 TPE環保双面防滑 | oniii",
     nameEn: "Yoga Mat TPE Eco-Friendly Double-Sided Non-Slip",
     slug: "yoga-mat-tpe-eco",
     description: "TPE环保材质，6mm厚度。双面防滑纹理，缓冲减震保护关节。含收纳绑带和背包，方便携带。",
@@ -780,6 +827,7 @@ async function main() {
 
   await createProduct({
     name: "碳纖維登山杖 伸縮摺疊",
+    seoTitle: "碳纖維登山杖 伸縮摺疊 | oniii",
     nameEn: "Carbon Fiber Trekking Poles Telescopic Foldable",
     slug: "carbon-fiber-trekking-poles",
     description: "碳纤维材质仅重230g/支，3节伸缩设计。钨钢杖尖+EVA握把，防滑减震。配收纳袋，户外登山必备。",
@@ -794,6 +842,7 @@ async function main() {
 
   await createProduct({
     name: "戶外便攜摺疊椅 超轻",
+    seoTitle: "戶外便攜摺疊椅 超轻 | oniii",
     nameEn: "Outdoor Portable Folding Chair Ultra-Light",
     slug: "outdoor-folding-chair-ultralight",
     description: "航空铝合金框架，仅重900g。承重150kg，一秒速开。配收纳袋，适合露营、钓鱼、沙滩。",
@@ -808,6 +857,7 @@ async function main() {
 
   await createProduct({
     name: "運動腰包 防水跑步手機袋",
+    seoTitle: "運動腰包 - 防水跑步手機袋 | oniii",
     nameEn: "Sports Waist Pack Waterproof Running Phone Bag",
     slug: "sports-waist-pack-waterproof",
     description: "IPX6防水面料，触屏可视窗口。可容纳7英寸手机+钥匙+卡片。反光条设计，夜跑更安全。",
@@ -823,6 +873,7 @@ async function main() {
   // ===== CIGARS (4 products) =====
   await createProduct({
     name: "古巴科霍雪茄 Cohoba Reserva Real",
+    seoTitle: "古巴科霍雪茄 Cohoba Reserva Real | oniii",
     nameEn: "Cuban Cohoba Reserva Real Cigars",
     slug: "cuban-cohoba-reserva-real",
     description: "正宗古巴科霍雪茄，手工卷制，陈年烟叶。中等浓度，带有雪松、坚果和巧克力的复杂风味。每盒 10 支装。",
@@ -839,6 +890,7 @@ async function main() {
 
   await createProduct({
     name: "多米尼加皇家尊威雪茄",
+    seoTitle: "多米尼加皇家尊威雪茄 | oniii",
     nameEn: "Dominican Arturo Fuente OpusX",
     slug: "dominican-arturo-fuente-opusx",
     description: "多米尼加顶级雪茄，皇家尊威系列。全茄衣雪茄，浓郁醇厚，带有皮革、胡椒和咖啡的香气。限量版收藏级。",
@@ -855,6 +907,7 @@ async function main() {
 
   await createProduct({
     name: "尼加拉瓜纯叶雪茄套裝",
+    seoTitle: "尼加拉瓜纯叶雪茄套裝 | oniii",
     nameEn: "Nicaraguan Pure Leaf Cigar Set",
     slug: "nicaraguan-pure-leaf-cigar-set",
     description: "尼加拉瓜手工雪茄，100% 纯叶卷制。中等至浓郁口感，带有泥土、烟草和香料的味道。适合资深雪茄爱好者。",
@@ -868,6 +921,7 @@ async function main() {
 
   await createProduct({
     name: "哈瓦那經典系列雪茄",
+    seoTitle: "哈瓦那經典系列雪茄 | oniii",
     nameEn: "Havana Classic Series Cigars",
     slug: "havana-classic-series-cigars",
     description: "哈瓦那经典系列，传统古巴工艺。柔和至中等浓度，带有奶油、香草和轻微胡椒味。适合初学者和日常享用。",

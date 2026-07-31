@@ -7,11 +7,11 @@ import "../globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "oniii - Quality Products from China | Worldwide Shipping",
+    default: "oniii - 優質中國商品 | 全球配送",
     template: "%s | oniii",
   },
   description:
-    "Discover premium Chinese products at oniii. Electronics, clothing, home goods, handicrafts and more. Free worldwide shipping on orders over $99.",
+    "在 oniii 發現優質中國商品。電子產品、服裝、家居用品、手工藝品等。訂單滿 99 美元免運費。",
   keywords: ["Chinese products", "online store", "worldwide shipping", "electronics", "clothing", "home goods", "handicrafts"],
   manifest: "/manifest.json",
   appleWebApp: {
@@ -20,8 +20,8 @@ export const metadata: Metadata = {
     statusBarStyle: "black-translucent",
   },
   openGraph: {
-    title: "oniii - Quality Products from China",
-    description: "Premium Chinese products delivered worldwide",
+    title: "oniii - 優質中國商品",
+    description: "優質中國商品全球配送",
     type: "website",
     siteName: "oniii",
   },
