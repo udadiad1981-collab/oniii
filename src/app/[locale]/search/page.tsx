@@ -83,10 +83,17 @@ export default async function SearchPage({
     take: 50,
   });
 
-  const categories = await prisma.category.findMany({
+  // Only show categories that have published products
+  const allCategories = await prisma.category.findMany({
     where: { parentId: null },
+    include: { 
+      products: {
+        where: { status: "published" }
+      }
+    },
   });
-
+  
+  const categories = allCategories.filter(cat => cat.products.length > 0);
   const mappedProducts = products.map((p) => ({
     id: p.id,
     nameEn: p.nameEn || p.name,

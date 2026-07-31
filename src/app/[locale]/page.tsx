@@ -41,10 +41,19 @@ export default async function HomePage({
     featured = [...featured, ...discounted];
   }
 
-  const categories = await prisma.category.findMany({
+  // Only show categories that have published products
+  const allCategories = await prisma.category.findMany({
     where: { parentId: null },
+    include: { 
+      products: {
+        where: { status: "published" }
+      }
+    },
     take: 8,
   });
+  
+  // Filter to only show categories with at least one published product
+  const categories = allCategories.filter(cat => cat.products.length > 0);
 
   const mappedProducts = (list: typeof recent) =>
     list.map((p) => ({
@@ -129,7 +138,7 @@ export default async function HomePage({
                    cat.slug.includes("handicraft") ? "🎨" :
                    cat.slug.includes("food") ? "🍵" :
                    cat.slug.includes("beauty") ? "💄" :
-                   cat.slug.includes("sport") ? "⚽" : "📦"}
+                   cat.slug.includes("sport") ? "⚽" : cat.slug.includes("cigar") ? "🚬" : "📦"}
                 </div>
                 <h3 className="font-medium text-sm text-gray-700 group-hover:text-[var(--accent)] transition-colors">
                   {locale === "zh" ? cat.name : cat.nameEn}

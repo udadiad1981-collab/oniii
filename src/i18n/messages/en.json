@@ -45,7 +45,7 @@
   "home": {
     "heroTitle": "Quality Products from China, Delivered Worldwide",
     "heroSubtitle": "Discover authentic Chinese craftsmanship, from electronics to handicrafts",
-    "heroTagline1": "PREMIUM CHINESE PRODUCTS",
+    "heroTagline1": "PREMIUM QUALITY PRODUCTS",
     "heroTagline2": "GLOBAL CONVENIENCE DELIVERY",
     "heroCta": "Shop Now",
     "featuredTitle": "Featured Products",
@@ -146,11 +146,11 @@
     "create_one": "Create one here",
     "already_have_account": "Already have an account?",
     "sign_in_here": "Sign in here",
-    "create_account":"Create Account",
+    "create_account": "Create Account",
     "back_to_home": "Back to homepage"
   },
-
-  "404": { "title": "Page Not Found",
+  "404": {
+    "title": "Page Not Found",
     "desc": "The page you're looking for doesn't exist or has been moved.",
     "backHome": "Back to Home"
   }
