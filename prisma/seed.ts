@@ -88,6 +88,8 @@ async function main() {
     material?: string;
     dimensions?: string;
     sku?: string;
+    seoTitle?: string;
+    seoDesc?: string;
   }) {
     const priceUsd = Math.round(data.price * 0.138 * 100) / 100;
     const compareAtUsd = data.compareAt ? Math.round(data.compareAt * 0.138 * 100) / 100 : undefined;
