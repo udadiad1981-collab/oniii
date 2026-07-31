@@ -167,3 +167,29 @@ npm run dev          # 本地开发 → localhost:3000
 ---
 
 > 此文件由 Codex 记忆系统自动维护。如需调整，请修改后重新同步。
+
+---
+
+## 🏠 家庭服务器项目（eqfrs.com）
+
+### Cloudflare Tunnel 配置
+| 项目 | 值 |
+|------|-----|
+| **Cloudflare 邮箱** | `Udadiad1981@gmail.com` |
+| **账户 ID** | `DB5DDAC5f9A43B2DA195AAA773C25E2E` |
+| **域名** | `eqfrs.com` |
+| **DNS 服务器** | `sonny.ns.cloudflare.com` / `wren.ns.cloudflare.com` |
+| **隧道名称** | `my-home-tunnel` |
+| **隧道 UUID** | `05a9f27b-58eb-4b04-8d85-a8f70fb8d231` |
+
+### 外网访问服务
+| 子域名 | 服务 | 地址 |
+|--------|------|------|
+| `chat` | Mattermost | https://chat.eqfrs.com |
+| `drive` | Seafile 网盘 | https://drive.eqfrs.com |
+
+### ⚠️ 重要提醒
+- **域名到期**: `eqfrs.com` 于 **2026-08-03** 到期（需续费 ¥95/年）
+- **阿里云账号**: `aliyun4583642120`
+
+---
