@@ -8,15 +8,15 @@ export default function Admin登入Page() {
   const [password, set密碼] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-  const [checking, set檢查中... useState(true);
+  const [checking, setChecking] = useState(true);
   const router = useRouter();
 
   useEffect(() => {
     // Check if already logged in
     fetch("/api/admin/me")
       .then(r => r.json())
-      .then(d => { if (d.authenticated) router.push("/admin"); else set檢查中...lse); })
-      .catch(() => set檢查中...lse));
+      .then(d => { if (d.authenticated) router.push("/admin"); else setChecking(false); })
+      .catch(() => setChecking(false));
   }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {

@@ -9,7 +9,7 @@ export default function Admin儀表板() {
   const [user, setUser] = useState<any>(null);
   const [stats, setStats] = useState<any>({ products: 0, orders: 0, users: 0, revenue: 0 });
   const [recentOrders, setRecentOrders] = useState<any[]>([]);
-  const [loading, set加載中... useState(true);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch("/api/admin/me")
@@ -23,7 +23,7 @@ export default function Admin儀表板() {
       fetch("/api/admin/stats").then(r => r.json()).then(d => {
         setStats(d.stats || { products: 0, orders: 0, users: 0, revenue: 0 });
         setRecentOrders(d.recentOrders || []);
-        set加載中...lse);
+        setLoading(false);
       });
     }
   }, [user]);
