@@ -3,20 +3,20 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
-export default function AdminLoginPage() {
+export default function Admin登入Page() {
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [password, set密碼] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-  const [checking, setChecking] = useState(true);
+  const [checking, set檢查中... useState(true);
   const router = useRouter();
 
   useEffect(() => {
     // Check if already logged in
     fetch("/api/admin/me")
       .then(r => r.json())
-      .then(d => { if (d.authenticated) router.push("/admin"); else setChecking(false); })
-      .catch(() => setChecking(false));
+      .then(d => { if (d.authenticated) router.push("/admin"); else set檢查中...lse); })
+      .catch(() => set檢查中...lse));
   }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -33,16 +33,16 @@ export default function AdminLoginPage() {
       if (res.ok && data.success) {
         router.push("/admin");
       } else {
-        setError(data.error || "登录失败");
+        setError(data.error || "登入失敗");
       }
     } catch {
-      setError("网络错误，请重试");
+      setError("網絡錯誤，請重試");
     }
     setLoading(false);
   };
 
   if (checking) {
-    return <div className="min-h-screen flex items-center justify-center"><div><div className="w-8 h-8 border-4 border-blue-600 rounded-full border-t-transparent animate-spin mx-auto mb-3"></div><p className="text-gray-600">Checking...</p></div></div>;
+    return <div className="min-h-screen flex items-center justify-center"><div><div className="w-8 h-8 border-4 border-blue-600 rounded-full border-t-transparent animate-spin mx-auto mb-3"></div><p className="text-gray-600">檢查中...</p></div></div>;
   }
 
   return (
@@ -59,7 +59,7 @@ export default function AdminLoginPage() {
               </div>
               <h1 className="text-2xl font-bold">oniii</h1>
             </div>
-            <p className="text-blue-100 text-sm">Sign in to Management Dashboard</p>
+            <p className="text-blue-100 text-sm">管理後台登入</p>
           </div>
         </div>
 
@@ -75,7 +75,7 @@ export default function AdminLoginPage() {
           <form onSubmit={handleSubmit} className="space-y-5">
             {/* Email */}
             <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-2">Email Address</label>
+              <label className="block text-sm font-semibold text-gray-700 mb-2">電子郵箱</label>
               <div className="relative">
                 <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">✉</span>
                 <input type="email" value={email} onChange={e => setEmail(e.target.value)}
@@ -84,12 +84,12 @@ export default function AdminLoginPage() {
               </div>
             </div>
 
-            {/* Password */}
+            {/* 密碼 */}
             <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-2">Password</label>
+              <label className="block text-sm font-semibold text-gray-700 mb-2">密碼</label>
               <div className="relative">
                 <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">🔐</span>
-                <input type="password" value={password} onChange={e => setPassword(e.target.value)}
+                <input type="password" value={password} onChange={e => set密碼(e.target.value)}
                   className="w-full pl-12 pr-4 py-3.5 border border-gray-200 rounded-xl focused:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-50 hover:bg-white transition-colors"
                   placeholder="Enter your password" required />
               </div>

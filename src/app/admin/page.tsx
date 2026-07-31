@@ -4,12 +4,12 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
-export default function AdminDashboard() {
+export default function Admin儀表板() {
   const router = useRouter();
   const [user, setUser] = useState<any>(null);
   const [stats, setStats] = useState<any>({ products: 0, orders: 0, users: 0, revenue: 0 });
   const [recentOrders, setRecentOrders] = useState<any[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, set加載中... useState(true);
 
   useEffect(() => {
     fetch("/api/admin/me")
@@ -23,17 +23,17 @@ export default function AdminDashboard() {
       fetch("/api/admin/stats").then(r => r.json()).then(d => {
         setStats(d.stats || { products: 0, orders: 0, users: 0, revenue: 0 });
         setRecentOrders(d.recentOrders || []);
-        setLoading(false);
+        set加載中...lse);
       });
     }
   }, [user]);
 
-  const handleLogout = async () => {
+  const handle退出 = async () => {
     await fetch("/api/admin/logout", { method: "POST" });
     router.push("/admin/login");
   };
 
-  if (loading) return <div className="min-h-screen flex items-center justify-center"><div><div className="w-8 h-8 border-4 border-blue-600 rounded-full border-t-transparent animate-spin mx-auto mb-3"></div><p className="text-gray-600">Loading...</p></div></div>;
+  if (loading) return <div className="min-h-screen flex items-center justify-center"><div><div className="w-8 h-8 border-4 border-blue-600 rounded-full border-t-transparent animate-spin mx-auto mb-3"></div><p className="text-gray-600">加載中...</p></div></div>;
 
   return (
     <div className="flex min-h-screen bg-gradient-to-br from-slate-50 to-blue-50/30">
@@ -46,12 +46,12 @@ export default function AdminDashboard() {
             </div>
             <div>
               <h2 className="text-lg font-bold tracking-wide">oniii</h2>
-              <p className="text-xs text-blue-300">Management</p>
+              <p className="text-xs text-blue-300">管理</p>
             </div>
           </div>
         </div>
 <nav className="p-4">
-          {[{label:"Dashboard",icon:"[D]",href:"/admin",active:true},
+          {[{label:"儀表板",icon:"[D]",href:"/admin",active:true},
             {label:"Products",icon:"◇",href:"/admin/products"},
             {label:"Orders",icon:"◎",href:"/admin/orders"},
             {label:"Categories",icon:"≡",href:"/admin/categories"}].map((item,i)=>(
@@ -71,18 +71,18 @@ export default function AdminDashboard() {
         <div className="p-4">
           <div className="bg-white/10 rounded-xl p-3 backdrop-blur-sm">
             <div className="text-xs text-blue-200 mb-1 truncate">{user?.email || ""}</div>
-            <button onClick={handleLogout} className="text-xs text-blue-300 hover:text-white transition-colors">Sign Out ←</button>
+            <button onClick={handle退出} className="text-xs text-blue-300 hover:text-white transition-colors">Sign Out ←</button>
           </div>
         </div>
       </aside>
 
       {/* Main Content */}
       <main className="flex-1 p-8 pt-8 max-w-7xl mx-auto">
-        {/* Welcome Header */}
+        {/* 歡迎 Header */}
         <div className="flex items-center justify-between mb-8">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">Dashboard</h1>
-            <p className="text-gray-600 text-sm">Welcome back, {user?.email?.split("@")[0]}! Here's what's happening today.</p>
+            <h1 className="text-3xl font-bold text-gray-900 mb-2">儀表板</h1>
+            <p className="text-gray-600 text-sm">歡迎 back, {user?.email?.split("@")[0]}! Here's what's happening today.</p>
           </div>
           <div className="flex items-center gap-3">
             <span className="px-4 py-2 bg-white rounded-full shadow-md text-sm font-medium text-gray-700">

@@ -24,7 +24,7 @@ export default function AdminOrdersPage() {
     setLoading(false);
   };
 
-  const updateStatus = async (id: string, status: string) => {
+  const update狀態 = async (id: string, status: string) => {
     await fetch("/api/admin/orders", { method: "PATCH", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ id, status }) });
     fetchOrders();
   };
@@ -47,7 +47,7 @@ export default function AdminOrdersPage() {
                 <td className="p-4"><div className="font-medium">{o.shipToName}</div><div className="text-xs text-gray-400">{o.email}</div></td>
                 <td className="p-4 text-xs text-gray-500 max-w-[200px] truncate">{o.shipToCountry}, {o.shipToCity}</td>
                 <td className="p-4 font-medium">${o.total.toFixed(2)}</td>
-                <td className="p-4"><select value={o.status} onChange={e => updateStatus(o.id, e.target.value)} className="text-xs px-2 py-1 rounded border">{[["pending","待付款"],["paid","已付款"],["processing","处理中"],["shipped","已发货"],["delivered","已签收"],["cancelled","已取消"],["refunded","已退款"]].map(([v,l])=>(<option key={v} value={v}>{l}</option>))}</select></td>
+                <td className="p-4"><select value={o.status} onChange={e => update狀態(o.id, e.target.value)} className="text-xs px-2 py-1 rounded border">{[["pending","待付款"],["paid","已付款"],["processing","处理中"],["shipped","已发货"],["delivered","已签收"],["cancelled","已取消"],["refunded","已退款"]].map(([v,l])=>(<option key={v} value={v}>{l}</option>))}</select></td>
                 <td className="p-4 text-xs text-gray-400">{new Date(o.createdAt).toLocaleDateString()}</td>
               </tr>
             ))}</tbody>
