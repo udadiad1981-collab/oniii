@@ -1,30 +1,169 @@
-<!-- BEGIN:nextjs-agent-rules -->
-# This is NOT the Next.js you know
+# AGENTS.md - Codex 记忆配置
 
-This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
-<!-- END:nextjs-agent-rules -->
+> WOD128G - oniii.com 国际网店项目记忆
 
 ---
 
-## 📝 2026-07-31 更新记录
+## 🤖 AI 身份
 
-### 繁体中文转换完成
-- **前台**: 所有翻译文件、分类名、产品名全部改为繁体中文
-- **后台**: login/dashboard/products/orders 页面全部繁体化
-- **SEO**: 元数据、标题、描述全部改为繁体中文
+- **代号**: WOD128G
+- **模型**: Qwen3.5-122B (LM Studio)
+- **主人**: 马皇（关基湛）
 
-### 新增功能
-- **第 8 分类**: 雪茄煙草 (cigars-tobacco)
-- **默认语言**: 改为英文 (en)
+---
 
-### Git 提交记录
-| Commit ID | 说明 |
-|-----------|------|
-| c527e49 | docs: 添加 2026-07-31 工作总结 |
-| 7cb8f56 | feat: 后台管理界面转换为繁体中文 |
-| 486192a | fix: 修复 SEO 和繁体中文问题 |
+## 🧑 用户偏好 / 习惯
 
-### 线上状态
-- **网站**: https://oniii.com ✅ 已部署繁体中文版本
-- **前台**: /zh 路径显示繁体中文
-- **后台**: /admin 路径已改为繁体中文
+- **语言**: 简体中文交流
+- **工作模式**: 结果优先，先跑通再谈架构
+- **测试要求**: 必须给截图证明；直接说"搞定了"还是"有问题"，不解释中间过程
+- **响应习惯**: 
+  - 结果要原文输出不总结
+  - 输出太长主动改单行或问"看什么部分"
+  - 说完一次后安静（不刷屏道歉）
+- **沟通偏好**: 
+  - 结构化输出（表格/分点列举）
+  - 一次性消化完整文档/密钥/存档，不喜欢多轮澄清
+
+---
+
+## 💻 技术栈与项目
+
+- **跨境电商**: oniii.com
+- **技术栈**: Next.js 16 + TypeScript + TailwindCSS 4 + PostgreSQL + Vercel
+- **当前关注**: Neon 数据库激活、网站功能测试、支付接入
+
+---
+
+## 🖥️ 环境事实
+
+- **系统**: macOS + zsh
+- **项目路径**: `/Users/udadiad/Desktop/国际网站`
+- **磁盘**: /Users 剩余约 1.5Ti（空间充足）
+
+---
+
+## 📋 核心原则
+
+1. **时效性检查**: 回复开头标注时效戳（如「截至 2026-08-01」）
+2. **数据来源验证**: 凭据/Tunnel 信息必须标注"截至__时间"
+3. **实时数据搜索**: 价格/版本号等时效信息必须多源验证，不许编数据
+4. **配置状态核验**: 执行前验证连通性，不盲目假设
+
+---
+
+## ⚠️ 禁忌红线
+
+- ❌ 不许直接复用旧数据而不标注时效
+- ❌ 不许把过时状态说成"当前有效"
+- ❌ 不许用敏感凭据而不提醒重新确认
+- ❌ **严禁将敏感凭证推送到 GitHub**
+
+---
+
+## 🔄 项目状态（截至 2026-08-01）
+
+### 🔴 **当前核心问题**
+网站返回 500 错误，Neon PostgreSQL 数据库无法连接
+
+```
+Error: Can't reach database server at `ep-floral-glade-at123unt-pooler.us-east-2.neon.tech:5432`
+```
+
+### ✅ **已完成的工作**
+| 任务 | Commit ID |
+|------|-----------|
+| 修复 admin 页面变量名错误 | `ed5cc44` |
+| Prisma schema 切换为 PostgreSQL | `5be8c37` |
+| Vercel DATABASE_URL 环境变量更新 | - |
+| 繁体中文翻译文件配置 | `src/i18n/messages/zh.json` |
+| 7 种语言支持配置 | de/en/es/fr/ja/ko/zh |
+
+### 📋 **待办事项**
+| 优先级 | 事项 |
+|--------|------|
+| 🔴 | **激活 Neon 数据库** - console.neon.tech/dashboard |
+| 🔴 | **Stripe / PayPal 注册** - 需营业执照 |
+| 🔴 | **后台密码改强** - admin123 太弱 |
+| 🟡 | **真实商品图片** - 替换 96 张 SVG 占位图 |
+| 🟡 | **物流报价表** - 配置运费规则 |
+
+---
+
+## 📊 技术架构快照
+
+| 组件 | 配置 |
+|------|------|
+| **前端框架** | Next.js 16 (Turbopack) + React 19 |
+| **语言** | TypeScript |
+| **样式** | TailwindCSS 4 |
+| **数据库** | PostgreSQL @ Neon (Free: 0.5GB, 100h/m) |
+| **ORM** | Prisma 5.22.0 |
+| **多语言** | next-intl 4，7 种语言 (de/en/es/fr/ja/ko/zh) |
+| **状态管理** | Zustand (购物车) |
+| **认证** | JWT Cookie (后台) |
+| **部署** | Vercel (Git push 自动) |
+| **PWA** | ✅ 已支持 |
+| **测试** | Playwright + 真浏览器 (16/16) |
+
+---
+
+## 📦 商品数据（当前状态）
+
+| 分类 | 数量 |
+|------|------|
+| 电子产品 | 8 |
+| 服装配饰 | 7 |
+| 家居用品 | 8 |
+| 手工艺品 | 7 |
+| 食品茶饮 | 6 |
+| 美妆个护 | 6 |
+| 户外运动 | 6 |
+| **合计** | **48** |
+
+---
+
+## 🔑 重要凭证（需本地安全存档）
+
+> ⚠️ **敏感信息不应提交到 GitHub，请保存在本地加密文件**
+
+| 项目 | 说明 |
+|------|------|
+| **Vercel Token** | 已加密存储在 Vercel Dashboard |
+| **Neon 数据库 URL** | 已配置在 Vercel 环境变量 |
+| **GitHub Token** | 已暴露，建议更换 |
+| **后台登录** | admin@oniii.com / admin123（需更换为强密码） |
+
+---
+
+## 🚀 启动命令（本地开发）
+
+```bash
+cd /Users/udadiad/Desktop/国际网站
+npm run dev          # 本地开发 → localhost:3000
+```
+
+线上直接访问：https://oniii.com
+
+---
+
+## ⚠️ 已知风险
+
+1. **GitHub Token / Vercel Token / 数据库密码** 均在聊天中暴露过，建议定期更换
+2. **后台密码 admin123** 上线后应更换为强密码
+3. **本地 SQLite dev.db** 不再使用，数据库已迁移到 Neon 云端
+4. **Neon Free Tier** 会自动休眠，需要手动激活
+
+---
+
+## 📝 下一步操作顺序
+
+1. **登录 Neon Console** → 激活数据库项目
+2. **等待 60 秒** → 确认连接恢复
+3. **触发 Vercel 重新部署**（或等待自动）
+4. **验证网站功能** → `/zh` 页面是否正常
+5. **测试所有功能** → 分类、搜索、购物车、结账等
+
+---
+
+> 此文件由 Codex 记忆系统自动维护。如需调整，请修改后重新同步。
