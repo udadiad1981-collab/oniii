@@ -114,7 +114,7 @@ export default function Admin登入Page() {
                 Default credentials: 
                 <span className="ml-2 font-mono bg-gray-100 px-2 py-0.5 rounded text-blue-600">admin@oniii.com</span>
                 <span className="mx-2 text-gray-400">|</span>
-                <span className="font-mono bg-gray-100 px-2 py-0.5 rounded text-red-600">admin123</span>
+                <span className="font-mono bg-gray-100 px-2 py-0.5 rounded text-green-600">已更新为强密码</span>
               </p>
             </div>
           </form>

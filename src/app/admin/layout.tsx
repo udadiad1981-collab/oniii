@@ -2,6 +2,7 @@
 
 import { SessionProvider } from "next-auth/react";
 import "../globals.css";
+import { AdminLocaleProvider, AdminLangSwitcher } from "./i18n";
 
 export default function AdminLayout({
   children,
@@ -10,9 +11,12 @@ export default function AdminLayout({
 }) {
   return (
     <SessionProvider>
-      <div className="min-h-screen bg-gray-50">
-        {children}
-      </div>
+      <AdminLocaleProvider>
+        <div className="min-h-screen bg-gray-50">
+          <AdminLangSwitcher />
+          {children}
+        </div>
+      </AdminLocaleProvider>
     </SessionProvider>
   );
 }
