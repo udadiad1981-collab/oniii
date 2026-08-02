@@ -12,10 +12,12 @@ export default function AdminLayout({
   return (
     <SessionProvider>
       <AdminLocaleProvider>
-        <div className="min-h-screen bg-gray-50">
-          <AdminLangSwitcher />
-          {children}
-        </div>
+        <html lang="zh">
+          <body className="min-h-screen bg-gray-50">
+            <AdminLangSwitcher />
+            {children}
+          </body>
+        </html>
       </AdminLocaleProvider>
     </SessionProvider>
   );
